@@ -1,0 +1,1 @@
+"./BSP.obj" "./CortexM.obj" "./FlashProgram.obj" "./Lab5.obj" "./Profile.obj" "./Texas.obj" "./eDisk.obj" "./msp432_startup_ccs.obj" "../msp432p401r.cmd" -llibc.a 

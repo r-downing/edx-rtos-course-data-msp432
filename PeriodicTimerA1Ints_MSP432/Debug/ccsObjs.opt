@@ -1,0 +1,1 @@
+"./ClockSystem.obj" "./PeriodicTimerA1Ints.obj" "./TimerA1.obj" "./msp432_startup_ccs.obj" "../msp432p401r.cmd" -l"libc.a" 

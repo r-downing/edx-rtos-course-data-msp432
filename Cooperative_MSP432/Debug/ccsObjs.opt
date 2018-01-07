@@ -1,0 +1,1 @@
+"./BSP.obj" "./CortexM.obj" "./Profile.obj" "./msp432_startup_ccs.obj" "./os.obj" "./osasm.obj" "./user.obj" "../msp432p401r.cmd" -llibc.a 

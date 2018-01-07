@@ -1,0 +1,1 @@
+"./ClockSystem.obj" "./CortexM.obj" "./PeriodicTimer32Ints.obj" "./Timer32.obj" "./msp432_startup_ccs.obj" "../msp432p401r.cmd" -llibc.a 
