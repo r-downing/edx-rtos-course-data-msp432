@@ -149,8 +149,13 @@ void OS_InitSemaphore(int32_t *semaPt, int32_t value){
 // Inputs:  pointer to a counting semaphore
 // Outputs: none
 void OS_Wait(int32_t *semaPt){
-	while(!(*semaPt)){} //spinlock implementation
+	DisableInterrupts();
+	while(!(*semaPt)){
+		EnableInterrupts();
+		DisableInterrupts();
+	} //spinlock implementation
 	(*semaPt)--;
+	EnableInterrupts();
 }
 
 // ******** OS_Signal ************
@@ -161,11 +166,16 @@ void OS_Wait(int32_t *semaPt){
 // Outputs: none
 void OS_Signal(int32_t *semaPt){
 //***YOU IMPLEMENT THIS FUNCTION*****
+	DisableInterrupts();
 	(*semaPt)++; //spinlock increment
+	EnableInterrupts();
 }
 
 
-
+/////////////////////
+int32_t mailboxSema;
+uint32_t mailboxData;
+/////////////////////
 
 // ******** OS_MailBox_Init ************
 // Initialize communication channel
@@ -175,7 +185,7 @@ void OS_Signal(int32_t *semaPt){
 void OS_MailBox_Init(void){
   // include data field and semaphore
   //***YOU IMPLEMENT THIS FUNCTION*****
-
+	OS_InitSemaphore(&mailboxSema, 0);
 }
 
 // ******** OS_MailBox_Send ************
@@ -186,7 +196,8 @@ void OS_MailBox_Init(void){
 // Errors: data lost if MailBox already has data
 void OS_MailBox_Send(uint32_t data){
   //***YOU IMPLEMENT THIS FUNCTION*****
-
+	mailboxData = data;
+	OS_Signal(&mailboxSema);
 }
 
 // ******** OS_MailBox_Recv ************
@@ -199,7 +210,8 @@ void OS_MailBox_Send(uint32_t data){
 // Errors:  none
 uint32_t OS_MailBox_Recv(void){ uint32_t data;
   //***YOU IMPLEMENT THIS FUNCTION*****
-  return data;
+	OS_Wait(&mailboxSema);
+  return mailboxData;
 }
 
 
