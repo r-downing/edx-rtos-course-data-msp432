@@ -29,6 +29,15 @@ tcbType tcbs[NUMTHREADS];
 tcbType *RunPt;
 int32_t Stacks[NUMTHREADS][STACKSIZE];
 
+void static runperiodicevents(void){
+// ****IMPLEMENT THIS****
+// **RUN PERIODIC THREADS, DECREMENT SLEEP COUNTERS
+	for(int i = 0; i < NUMTHREADS; i++){
+		if(tcbs[i].sleep) {
+			tcbs[i].sleep--;
+		}
+	}
+}
 
 // ******** OS_Init ************
 // Initialize operating system, disable interrupts
@@ -41,6 +50,7 @@ void OS_Init(void){
   BSP_Clock_InitFastest();// set processor clock to fastest speed
 // perform any initializations needed, 
 // like setting up periodic timer to run runperiodicevents
+  BSP_PeriodicTask_Init(&runperiodicevents, 1000, 2); 
 
 }
 
@@ -117,11 +127,8 @@ int OS_AddPeriodicEventThread(void(*thread)(void), uint32_t period){
 
 }
 
-void static runperiodicevents(void){
-// ****IMPLEMENT THIS****
-// **RUN PERIODIC THREADS, DECREMENT SLEEP COUNTERS
 
-}
+
 
 //******** OS_Launch ***************
 // Start the scheduler, enable interrupts
@@ -135,6 +142,8 @@ void OS_Launch(uint32_t theTimeSlice){
   STRELOAD = theTimeSlice - 1; // reload value
   STCTRL = 0x00000007;         // enable, core clock and interrupt arm
   StartOS();                   // start on the first task
+	
+
 }
 // runs every ms
 void Scheduler(void){ // every time slice
@@ -168,6 +177,7 @@ void OS_Sleep(uint32_t sleepTime){
 	RunPt->sleep = sleepTime;
 	OS_Suspend();
 }
+
 
 // ******** OS_InitSemaphore ************
 // Initialize counting semaphore
