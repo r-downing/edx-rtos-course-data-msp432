@@ -306,7 +306,7 @@ void Task3(void){
         PlotState = Accelerometer;
       }
       ReDrawAxes = 1;                // redraw axes on next call of display task
-      BSP_Buzzer_Set(512);           // beep until next call of this task
+      BSP_Buzzer_Set(112);           // beep until next call of this task
     }
     prev1 = current;
     current = BSP_Button2_Input();
@@ -322,7 +322,7 @@ void Task3(void){
         PlotState = Temperature;
       }
       ReDrawAxes = 1;                // redraw axes on next call of display task
-      BSP_Buzzer_Set(512);           // beep until next call of this task
+      BSP_Buzzer_Set(112);           // beep until next call of this task
     }
     prev2 = current;
     // update the LED
@@ -469,6 +469,7 @@ void Task7(void){
 // to work on this step, you must rename all other main()
 // functions in this file.
 int32_t s1,s2;
+//int main(void){
 int main_step1(void){
   OS_InitSemaphore(&s1, 0);
   OS_InitSemaphore(&s2, 1);
@@ -559,7 +560,8 @@ void TaskF(void){ // consumer
   }
 }
 
-int main_step2(void){
+int main(void){
+//int main_step2(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_InitSemaphore(&sAB, 0);
@@ -1213,7 +1215,7 @@ int main_step5(void){
 // Remember that you must have exactly one main() function, so
 // to work on this step, you must rename all other main()
 // functions in this file.
-int main(void){
+int mainx(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   Task0_Init();    // microphone init

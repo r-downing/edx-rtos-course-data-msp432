@@ -22,43 +22,19 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 C:\Keil_v5\MSP432ValvanoWare\Lab3_MSP432\Lab3.uvprojx
-Project File Date:  01/08/2018
+Project File Date:  01/09/2018
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling Lab3.c...
 compiling os.c...
-os.c(100): warning:  #177-D: function "runperiodicevents"  was declared but never referenced
+os.c(120): warning:  #177-D: function "runperiodicevents"  was declared but never referenced
   void static runperiodicevents(void){
 os.c: 1 warning, 0 errors
-compiling CortexM.c...
-assembling osasm.s...
-assembling startup_msp432p401r_uvision.s...
-compiling BSP.c...
-..\inc\../inc/msp432p401r.h(16180): warning:  #47-D: incompatible redefinition of macro "RSTCTL_PSSRESET_STAT_SVSL"  (declared at line 314 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define RSTCTL_PSSRESET_STAT_SVSL                          (0x00000001)          /* Indicates if POR was caused by an SVSL trip condition in the PSS */
-..\inc\../inc/msp432p401r.h(17341): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_DBG_SEC_ACT"  (declared at line 318 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define SYSCTL_SYSTEM_STAT_DBG_SEC_ACT                     (0x00000008)          /* Debug Security active */
-..\inc\../inc/msp432p401r.h(17344): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_JTAG_SWD_LOCK_ACT"  (declared at line 321 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define SYSCTL_SYSTEM_STAT_JTAG_SWD_LOCK_ACT               (0x00000010)          /* Indicates if JTAG and SWD Lock is active */
-..\inc\../inc/msp432p401r.h(17347): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_IP_PROT_ACT"  (declared at line 324 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define SYSCTL_SYSTEM_STAT_IP_PROT_ACT                     (0x00000020)          /* Indicates if IP protection is active */
-..\inc\BSP.c: 4 warnings, 0 errors
-compiling system_msp432p401r.c...
-compiling Profile.c...
-..\inc\../inc/msp432p401r.h(16180): warning:  #47-D: incompatible redefinition of macro "RSTCTL_PSSRESET_STAT_SVSL"  (declared at line 314 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define RSTCTL_PSSRESET_STAT_SVSL                          (0x00000001)          /* Indicates if POR was caused by an SVSL trip condition in the PSS */
-..\inc\../inc/msp432p401r.h(17341): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_DBG_SEC_ACT"  (declared at line 318 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define SYSCTL_SYSTEM_STAT_DBG_SEC_ACT                     (0x00000008)          /* Debug Security active */
-..\inc\../inc/msp432p401r.h(17344): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_JTAG_SWD_LOCK_ACT"  (declared at line 321 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define SYSCTL_SYSTEM_STAT_JTAG_SWD_LOCK_ACT               (0x00000010)          /* Indicates if JTAG and SWD Lock is active */
-..\inc\../inc/msp432p401r.h(17347): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_IP_PROT_ACT"  (declared at line 324 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
-  #define SYSCTL_SYSTEM_STAT_IP_PROT_ACT                     (0x00000020)          /* Indicates if IP protection is active */
-..\inc\Profile.c: 4 warnings, 0 errors
+compiling Lab3.c...
 linking...
-Program Size: Code=16712 RO-data=1832 RW-data=420 ZI-data=4364  
-".\Objects\Lab3.axf" - 0 Error(s), 9 Warning(s).
+Program Size: Code=10244 RO-data=428 RW-data=420 ZI-data=4884  
+".\Objects\Lab3.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -89,7 +65,7 @@ Package Vendor: TexasInstruments
       Source file:   Examples\BlinkLED\blinkLED.c
 
    * Component: ARM::CMSIS:CORE:5.0.2
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

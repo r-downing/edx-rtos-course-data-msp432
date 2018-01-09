@@ -21,6 +21,7 @@ struct tcb{
    // nonzero if blocked on this semaphore
    // nonzero if this thread is sleeping
 	int *blocked;
+	int sleep;
 //*FILL THIS IN****
 };
 typedef struct tcb tcbType;
@@ -76,7 +77,26 @@ int OS_AddThreads(void(*thread0)(void),
                   void(*thread4)(void),
                   void(*thread5)(void)){
   // **similar to Lab 2. initialize as not blocked, not sleeping****
-
+	int32_t status = StartCritical();
+  tcbs[0].next = &tcbs[1]; // 0 points to 1
+  tcbs[1].next = &tcbs[2]; // 1 points to 2
+  tcbs[2].next = &tcbs[3]; // 2 points to 3
+	tcbs[3].next = &tcbs[4]; // 3 points to 0
+	tcbs[4].next = &tcbs[5]; // 3 points to 0
+	tcbs[5].next = &tcbs[0]; // 3 points to 0
+	SetInitialStack(0); Stacks[0][STACKSIZE-2] = (int32_t)(thread0); // PC
+  SetInitialStack(1); Stacks[1][STACKSIZE-2] = (int32_t)(thread1); // PC
+  SetInitialStack(2); Stacks[2][STACKSIZE-2] = (int32_t)(thread2); // PC
+  SetInitialStack(3); Stacks[3][STACKSIZE-2] = (int32_t)(thread3); // PC
+  SetInitialStack(4); Stacks[4][STACKSIZE-2] = (int32_t)(thread4); // PC
+  SetInitialStack(5); Stacks[5][STACKSIZE-2] = (int32_t)(thread5); // PC
+  for(int i = 0; i < NUMTHREADS; i++){
+		tcbs[i].blocked = 0;
+		tcbs[i].sleep = 0;
+	}
+										
+	RunPt = &tcbs[0];       // thread 0 will run first
+	EndCritical(status);
   return 1;               // successful
 }
 
@@ -122,7 +142,7 @@ void Scheduler(void){ // every time slice
 // ROUND ROBIN, skip blocked and sleeping threads
 	do {
 		RunPt = RunPt->next;
-	} while(RunPt->blocked);
+	} while(RunPt->blocked || RunPt->sleep);
 }
 
 //******** OS_Suspend ***************
@@ -145,6 +165,8 @@ void OS_Sleep(uint32_t sleepTime){
 // ****IMPLEMENT THIS****
 // set sleep parameter in TCB
 // suspend, stops running
+	RunPt->sleep = sleepTime;
+	OS_Suspend();
 }
 
 // ******** OS_InitSemaphore ************
@@ -154,6 +176,7 @@ void OS_Sleep(uint32_t sleepTime){
 // Outputs: none
 void OS_InitSemaphore(int32_t *semaPt, int32_t value){
 //***IMPLEMENT THIS***
+	(*semaPt) = value;
 }
 
 // ******** OS_Wait ************
