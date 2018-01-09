@@ -1,0 +1,166 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;/******************************************************
+                       ***********************/
+    2 00000000         ; OSasm.s: low-level OS commands, written in assembly   
+                                           */
+    3 00000000         ; Runs on LM4F120/TM4C123/MSP432
+    4 00000000         ; A very simple real time operating system with minimal 
+                       features.
+    5 00000000         ; Daniel Valvano
+    6 00000000         ; February 8, 2016
+    7 00000000         ;
+    8 00000000         ;  This example accompanies the book
+    9 00000000         ;  "Embedded Systems: Real-Time Interfacing to the MSP43
+                       2 Microcontroller",
+   10 00000000         ;  ISBN: 978-1514676585, Jonathan Valvano, copyright (c)
+                        2015
+   11 00000000         ;
+   12 00000000         ;  Programs 4.4 through 4.12, section 4.2
+   13 00000000         ;
+   14 00000000         ;Copyright 2015 by Jonathan W. Valvano, valvano@mail.ute
+                       xas.edu
+   15 00000000         ;    You may use, edit, run or distribute this file
+   16 00000000         ;    as long as the above copyright notice remains
+   17 00000000         ; THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHE
+                       THER EXPRESS, IMPLIED
+   18 00000000         ; OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED W
+                       ARRANTIES OF
+   19 00000000         ; MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE A
+                       PPLY TO THIS SOFTWARE.
+   20 00000000         ; VALVANO SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR
+                        SPECIAL, INCIDENTAL,
+   21 00000000         ; OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+   22 00000000         ; For more information about my classes, my research, an
+                       d my books, see
+   23 00000000         ; http://users.ece.utexas.edu/~valvano/
+   24 00000000         ; */
+   25 00000000         
+   26 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+   27 00000000                 THUMB
+   28 00000000                 REQUIRE8
+   29 00000000                 PRESERVE8
+   30 00000000         
+   31 00000000                 EXTERN           RunPt       ; currently running
+                                                             thread
+   32 00000000                 EXPORT           StartOS
+   33 00000000                 EXPORT           SysTick_Handler
+   34 00000000         
+   35 00000000         
+   36 00000000         
+   37 00000000         
+   38 00000000         SysTick_Handler                      ; 1) Saves R0-R3,R1
+                                                            2,LR,PC,PSR
+   39 00000000 B672            CPSID            I           ; 2) Prevent interr
+                                                            upt during switch
+   40 00000002 E92D 0FF0       PUSH             {R4-R11}    ; 3) Save remaining
+                                                             regs r4-11
+   41 00000006 480D            LDR              R0, =RunPt  ; 4) R0=pointer to 
+                                                            RunPt, old thread
+   42 00000008 6801            LDR              R1, [R0]    ;    R1 = RunPt
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   43 0000000A F8C1 D000       STR              SP, [R1]    ; 5) Save SP into T
+                                                            CB
+   44 0000000E 6849            LDR              R1, [R1,#4] ; 6) R1 = RunPt->ne
+                                                            xt
+   45 00000010 6001            STR              R1, [R0]    ;    RunPt = R1
+   46 00000012 F8D1 D000       LDR              SP, [R1]    ; 7) new thread SP;
+                                                             SP = RunPt->sp;
+   47 00000016 E8BD 0FF0       POP              {R4-R11}    ; 8) restore regs r
+                                                            4-11
+   48 0000001A B662            CPSIE            I           ; 9) tasks run with
+                                                             interrupts enabled
+                                                            
+   49 0000001C 4770            BX               LR          ; 10) restore R0-R3
+                                                            ,R12,LR,PC,PSR
+   50 0000001E         
+   51 0000001E         StartOS
+   52 0000001E 4807            LDR              R0, =RunPt  ; currently running
+                                                             thread
+   53 00000020 6802            LDR              R2, [R0]    ; R2 = value of Run
+                                                            Pt
+   54 00000022 F8D2 D000       LDR              SP, [R2]    ; new thread SP; SP
+                                                             = RunPt->stackPoin
+                                                            ter;
+   55 00000026 E8BD 0FF0       POP              {R4-R11}    ; restore regs r4-1
+                                                            1
+   56 0000002A BC0F            POP              {R0-R3}     ; restore regs r0-3
+                                                            
+   57 0000002C F85D CB04       POP              {R12}
+   58 00000030 B001            ADD              SP,SP,#4    ; discard LR from i
+                                                            nitial stack
+   59 00000032 F85D EB04       POP              {LR}        ; start location
+   60 00000036 B001            ADD              SP,SP,#4    ; discard PSR
+   61 00000038 B662            CPSIE            I           ; Enable interrupts
+                                                             at processor level
+                                                            
+   62 0000003A 4770            BX               LR          ; start first threa
+                                                            d
+   63 0000003C         
+   64 0000003C                 ALIGN
+   65 0000003C                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4 --apcs=interw
+ork --depend=.\objects\osasm.d -o.\objects\osasm.o -I.\RTE\_Target_1 -IC:\Keil_
+v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\TexasInstrument
+s\MSP432P4xx_DFP\3.2.2\Device\Include --predefine="__EVAL SETA 1" --predefine="
+__UVISION_VERSION SETA 524" --predefine="_RTE_ SETA 1" --predefine="__MSP432P40
+1R__ SETA 1" --list=.\listings\osasm.lst OSasm.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 26 in file OSasm.s
+   Uses
+      None
+Comment: .text unused
+StartOS 0000001E
+
+Symbol: StartOS
+   Definitions
+      At line 51 in file OSasm.s
+   Uses
+      At line 32 in file OSasm.s
+Comment: StartOS used once
+SysTick_Handler 00000000
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 38 in file OSasm.s
+   Uses
+      At line 33 in file OSasm.s
+Comment: SysTick_Handler used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+RunPt 00000000
+
+Symbol: RunPt
+   Definitions
+      At line 31 in file OSasm.s
+   Uses
+      At line 41 in file OSasm.s
+      At line 52 in file OSasm.s
+
+1 symbol
+340 symbols in table
