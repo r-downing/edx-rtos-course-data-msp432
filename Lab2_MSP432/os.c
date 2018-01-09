@@ -139,7 +139,7 @@ void Scheduler(void){ // every time slice
 // Outputs: none
 void OS_InitSemaphore(int32_t *semaPt, int32_t value){
   //***YOU IMPLEMENT THIS FUNCTION*****
-
+	(*semaPt)=value;
 }
 
 // ******** OS_Wait ************
