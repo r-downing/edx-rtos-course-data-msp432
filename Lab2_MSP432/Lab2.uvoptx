@@ -168,6 +168,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>Out</ItemText>
         </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TemperatureData</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
