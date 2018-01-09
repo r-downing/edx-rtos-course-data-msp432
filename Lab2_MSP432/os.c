@@ -113,10 +113,19 @@ int OS_AddThreads3(void(*task0)(void),
 // It is assumed the time to run these event threads is short compared to 1 msec
 // These threads cannot spin, block, loop, sleep, or kill
 // These threads can call OS_Signal
+
+void (*PeriodicTask1)(void);  // pointer to user function
+//void (*PeriodicTask2)(void);  // pointer to user function
+uint32_t PeriodicTaskInterval1;
+uint32_t PeriodicTaskInterval2;
+
 int OS_AddPeriodicEventThreads(void(*thread1)(void), uint32_t period1,
   void(*thread2)(void), uint32_t period2){
   //***YOU IMPLEMENT THIS FUNCTION*****
-
+	PeriodicTaskInterval1 = period1;
+	PeriodicTaskInterval2 = period2;
+	PeriodicTask1 = thread1;
+	//PeriodicTask2 = thread2;
   return 1;
 }
 
@@ -134,10 +143,16 @@ void OS_Launch(uint32_t theTimeSlice){
   StartOS();                   // start on the first task
 }
 // runs every ms
+uint32_t timecount = 0;
+
 void Scheduler(void){ // every time slice
   // run any periodic event threads if needed
   // implement round robin scheduler, update RunPt
   //***YOU IMPLEMENT THIS FUNCTION*****
+	timecount++;
+	if(!(timecount%PeriodicTaskInterval1)){
+		(*PeriodicTask1)();
+	}
   RunPt = RunPt->next;
 }
 

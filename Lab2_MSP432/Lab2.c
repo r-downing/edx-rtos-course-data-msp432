@@ -480,8 +480,8 @@ int main_step3(void){
 }
 //***************Step 4*************************
 // Increase to 4 threads
-int main(void){
-//int main_step4(void){
+//int main(void){
+int main_step4(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   Task0_Init();    // microphone init
@@ -506,7 +506,8 @@ int main(void){
 //***************Step 5*************************
 // add one periodic task
 void Dummy(void){}; // place holder
-int main_step5(void){
+int main(void){
+//int main_step5(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   Task0_Init();    // microphone init
