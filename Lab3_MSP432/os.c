@@ -20,6 +20,7 @@ struct tcb{
   struct tcb *next;  // linked-list pointer
    // nonzero if blocked on this semaphore
    // nonzero if this thread is sleeping
+	int *blocked;
 //*FILL THIS IN****
 };
 typedef struct tcb tcbType;
@@ -43,7 +44,23 @@ void OS_Init(void){
 }
 
 void SetInitialStack(int i){
-
+  tcbs[i].sp = &Stacks[i][STACKSIZE-16]; // thread stack pointer
+  Stacks[i][STACKSIZE-1] = 0x01000000;   // thumb bit
+	//debugging values
+  Stacks[i][STACKSIZE-3] = 0x14141414;   // R14
+  Stacks[i][STACKSIZE-4] = 0x12121212;   // R12
+  Stacks[i][STACKSIZE-5] = 0x03030303;   // R3
+  Stacks[i][STACKSIZE-6] = 0x02020202;   // R2
+  Stacks[i][STACKSIZE-7] = 0x01010101;   // R1
+  Stacks[i][STACKSIZE-8] = 0x00000000;   // R0
+  Stacks[i][STACKSIZE-9] = 0x11111111;   // R11
+  Stacks[i][STACKSIZE-10] = 0x10101010;  // R10
+  Stacks[i][STACKSIZE-11] = 0x09090909;  // R9
+  Stacks[i][STACKSIZE-12] = 0x08080808;  // R8
+  Stacks[i][STACKSIZE-13] = 0x07070707;  // R7
+  Stacks[i][STACKSIZE-14] = 0x06060606;  // R6
+  Stacks[i][STACKSIZE-15] = 0x05050505;  // R5
+  Stacks[i][STACKSIZE-16] = 0x04040404;  // R4
   // **Same as Lab 2 and Lab 3****
 }
 
@@ -103,6 +120,9 @@ void OS_Launch(uint32_t theTimeSlice){
 void Scheduler(void){ // every time slice
 // ****IMPLEMENT THIS****
 // ROUND ROBIN, skip blocked and sleeping threads
+	do {
+		RunPt = RunPt->next;
+	} while(RunPt->blocked);
 }
 
 //******** OS_Suspend ***************
@@ -144,6 +164,14 @@ void OS_InitSemaphore(int32_t *semaPt, int32_t value){
 // Outputs: none
 void OS_Wait(int32_t *semaPt){
 //***IMPLEMENT THIS***
+	DisableInterrupts();
+	(*semaPt)--;
+	if((*semaPt)<0) {
+		RunPt->blocked = semaPt;
+		EnableInterrupts();
+		OS_Suspend();
+	}
+	EnableInterrupts();
 }
 
 // ******** OS_Signal ************
@@ -154,6 +182,17 @@ void OS_Wait(int32_t *semaPt){
 // Outputs: none
 void OS_Signal(int32_t *semaPt){
 //***IMPLEMENT THIS***
+	tcbType *pt;
+	DisableInterrupts();
+	(*semaPt)++;
+	if ((*semaPt) <= 0){
+		pt = RunPt->next;
+		while(pt->blocked != semaPt) { //search for blocked
+			pt = pt->next;
+		}
+		pt->blocked = 0; //wakeup
+	}
+	EnableInterrupts();
 }
 
 #define FSIZE 10    // can be any size
