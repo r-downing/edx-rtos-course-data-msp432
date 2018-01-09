@@ -115,7 +115,7 @@ int OS_AddThreads3(void(*task0)(void),
 // These threads can call OS_Signal
 
 void (*PeriodicTask1)(void);  // pointer to user function
-//void (*PeriodicTask2)(void);  // pointer to user function
+void (*PeriodicTask_2)(void);  // pointer to user function
 uint32_t PeriodicTaskInterval1;
 uint32_t PeriodicTaskInterval2;
 
@@ -125,7 +125,7 @@ int OS_AddPeriodicEventThreads(void(*thread1)(void), uint32_t period1,
 	PeriodicTaskInterval1 = period1;
 	PeriodicTaskInterval2 = period2;
 	PeriodicTask1 = thread1;
-	//PeriodicTask2 = thread2;
+	PeriodicTask_2 = thread2;
   return 1;
 }
 
@@ -153,6 +153,10 @@ void Scheduler(void){ // every time slice
 	if(!(timecount%PeriodicTaskInterval1)){
 		(*PeriodicTask1)();
 	}
+	if(!(timecount%PeriodicTaskInterval2)){
+		(*PeriodicTask_2)();
+	}
+	
   RunPt = RunPt->next;
 }
 
