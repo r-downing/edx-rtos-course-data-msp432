@@ -560,8 +560,8 @@ void TaskF(void){ // consumer
   }
 }
 
-int main(void){
-//int main_step2(void){
+//int main(void){
+int main_step2(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_InitSemaphore(&sAB, 0);
@@ -657,7 +657,8 @@ void TaskL(void){ // dummy
   }
 }
 
-int main_step3(void){
+int main(void){
+//int main_step3(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_FIFO_Init();
