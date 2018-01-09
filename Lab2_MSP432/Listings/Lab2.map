@@ -157,6 +157,8 @@ Section Cross References
     os.o(i.OS_MailBox_Recv) refers to os.o(.data) for mailboxSema
     os.o(i.OS_MailBox_Send) refers to os.o(i.OS_Signal) for OS_Signal
     os.o(i.OS_MailBox_Send) refers to os.o(.data) for mailboxData
+    os.o(i.OS_Signal) refers to cortexm.o(.emb_text) for DisableInterrupts
+    os.o(i.OS_Wait) refers to cortexm.o(.emb_text) for DisableInterrupts
     os.o(i.SetInitialStack) refers to os.o(.bss) for Stacks
     bsp.o(i.BSP_Accelerometer_Init) refers to bsp.o(i.adcinit) for adcinit
     bsp.o(i.BSP_Buzzer_Init) refers to bsp.o(.data) for SubsystemFrequency
@@ -676,7 +678,6 @@ Removing Unused input sections from the image.
     Removing bsp.o(i.writedata), (72 bytes).
     Removing bsp.o(.bss), (12 bytes).
     Removing bsp.o(.constdata), (1403 bytes).
-    Removing cortexm.o(.emb_text), (32 bytes).
     Removing cortexm.o(i.Clock_Delay1ms), (22 bytes).
     Removing profile.o(.rev16_text), (4 bytes).
     Removing profile.o(.revsh_text), (4 bytes).
@@ -738,7 +739,7 @@ Removing Unused input sections from the image.
     Removing system_msp432p401r.o(i.SystemCoreClockUpdate), (612 bytes).
     Removing system_msp432p401r.o(.data), (4 bytes).
 
-169 unused section(s) (total 24129 bytes) removed from the image.
+168 unused section(s) (total 24097 bytes) removed from the image.
 
 ==============================================================================
 
@@ -755,45 +756,45 @@ Image Symbol Table
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/faddsub.s                       0x00000000   Number         0  faddsub_clz.o ABSOLUTE
@@ -865,28 +866,29 @@ Image Symbol Table
     .ARM.Collect$$rtexit$$00000002           0x000001d4   Section        0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
     .ARM.Collect$$rtexit$$00000003           0x000001d4   Section        4  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
     .ARM.Collect$$rtexit$$00000004           0x000001d8   Section        6  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
-    .text                                    0x000001e0   Section       72  osasm.o(.text)
-    .text                                    0x00000228   Section       60  startup_msp432p401r_uvision.o(.text)
-    .text                                    0x00000264   Section        0  heapauxi.o(.text)
-    .text                                    0x0000026a   Section       74  sys_stackheap_outer.o(.text)
-    .text                                    0x000002b4   Section        0  exit.o(.text)
-    .text                                    0x000002c8   Section        8  libspace.o(.text)
-    .text                                    0x000002d0   Section        0  sys_exit.o(.text)
-    .text                                    0x000002dc   Section        2  use_no_semi.o(.text)
-    .text                                    0x000002de   Section        0  indicate_semi.o(.text)
-    i.OS_InitSemaphore                       0x000002de   Section        0  os.o(i.OS_InitSemaphore)
-    i.OS_MailBox_Init                        0x000002e4   Section        0  os.o(i.OS_MailBox_Init)
-    i.OS_MailBox_Recv                        0x000002f4   Section        0  os.o(i.OS_MailBox_Recv)
-    i.OS_MailBox_Send                        0x0000030c   Section        0  os.o(i.OS_MailBox_Send)
-    i.OS_Signal                              0x00000324   Section        0  os.o(i.OS_Signal)
-    i.OS_Wait                                0x0000032c   Section        0  os.o(i.OS_Wait)
-    i.Scheduler                              0x0000033c   Section        0  os.o(i.Scheduler)
-    i.SystemInit                             0x00000340   Section        0  system_msp432p401r.o(i.SystemInit)
-    i.T32_INT1_IRQHandler                    0x000003a0   Section        0  bsp.o(i.T32_INT1_IRQHandler)
-    i.TA1_0_IRQHandler                       0x000003b8   Section        0  bsp.o(i.TA1_0_IRQHandler)
-    i.TA2_0_IRQHandler                       0x000003d8   Section        0  bsp.o(i.TA2_0_IRQHandler)
-    i.TA3_0_IRQHandler                       0x000003f8   Section        0  texas.o(i.TA3_0_IRQHandler)
-    i.main                                   0x00000418   Section        0  lab2.o(i.main)
+    .emb_text                                0x000001e0   Section       32  cortexm.o(.emb_text)
+    .text                                    0x00000200   Section       72  osasm.o(.text)
+    .text                                    0x00000248   Section       60  startup_msp432p401r_uvision.o(.text)
+    .text                                    0x00000284   Section        0  heapauxi.o(.text)
+    .text                                    0x0000028a   Section       74  sys_stackheap_outer.o(.text)
+    .text                                    0x000002d4   Section        0  exit.o(.text)
+    .text                                    0x000002e8   Section        8  libspace.o(.text)
+    .text                                    0x000002f0   Section        0  sys_exit.o(.text)
+    .text                                    0x000002fc   Section        2  use_no_semi.o(.text)
+    .text                                    0x000002fe   Section        0  indicate_semi.o(.text)
+    i.OS_InitSemaphore                       0x000002fe   Section        0  os.o(i.OS_InitSemaphore)
+    i.OS_MailBox_Init                        0x00000304   Section        0  os.o(i.OS_MailBox_Init)
+    i.OS_MailBox_Recv                        0x00000314   Section        0  os.o(i.OS_MailBox_Recv)
+    i.OS_MailBox_Send                        0x0000032c   Section        0  os.o(i.OS_MailBox_Send)
+    i.OS_Signal                              0x00000344   Section        0  os.o(i.OS_Signal)
+    i.OS_Wait                                0x00000358   Section        0  os.o(i.OS_Wait)
+    i.Scheduler                              0x0000037c   Section        0  os.o(i.Scheduler)
+    i.SystemInit                             0x00000380   Section        0  system_msp432p401r.o(i.SystemInit)
+    i.T32_INT1_IRQHandler                    0x000003e0   Section        0  bsp.o(i.T32_INT1_IRQHandler)
+    i.TA1_0_IRQHandler                       0x000003f8   Section        0  bsp.o(i.TA1_0_IRQHandler)
+    i.TA2_0_IRQHandler                       0x00000418   Section        0  bsp.o(i.TA2_0_IRQHandler)
+    i.TA3_0_IRQHandler                       0x00000438   Section        0  texas.o(i.TA3_0_IRQHandler)
+    i.main                                   0x00000458   Section        0  lab2.o(i.main)
     .data                                    0x20000000   Section       78  lab2.o(.data)
     soundSum                                 0x20000044   Data           4  lab2.o(.data)
     time                                     0x20000048   Data           4  lab2.o(.data)
@@ -995,82 +997,88 @@ Image Symbol Table
     __rt_exit_ls                             0x000001d5   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000003)
     __rt_exit_prels_1                        0x000001d5   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000002)
     __rt_exit_exit                           0x000001d9   Thumb Code     0  rtexit2.o(.ARM.Collect$$rtexit$$00000004)
-    SysTick_Handler                          0x000001e1   Thumb Code     0  osasm.o(.text)
-    StartOS                                  0x00000207   Thumb Code     0  osasm.o(.text)
-    Reset_Handler                            0x00000229   Thumb Code     8  startup_msp432p401r_uvision.o(.text)
-    NMI_Handler                              0x00000231   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    HardFault_Handler                        0x00000233   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    MemManage_Handler                        0x00000235   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    BusFault_Handler                         0x00000237   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    UsageFault_Handler                       0x00000239   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    SVC_Handler                              0x0000023b   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    DebugMon_Handler                         0x0000023d   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    PendSV_Handler                           0x0000023f   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
-    ADC14_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    AES256_IRQHandler                        0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    COMP_E0_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    COMP_E1_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    CS_IRQHandler                            0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    DMA_ERR_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    DMA_INT0_IRQHandler                      0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    DMA_INT1_IRQHandler                      0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    DMA_INT2_IRQHandler                      0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    DMA_INT3_IRQHandler                      0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIA0_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIA1_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIA2_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIA3_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIB0_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIB1_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIB2_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    EUSCIB3_IRQHandler                       0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    FLCTL_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    FPU_IRQHandler                           0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PCM_IRQHandler                           0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PORT1_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PORT2_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PORT3_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PORT4_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PORT5_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PORT6_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    PSS_IRQHandler                           0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    RTC_C_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    T32_INT2_IRQHandler                      0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    T32_INTC_IRQHandler                      0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    TA0_0_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    TA0_N_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    TA1_N_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    TA2_N_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    TA3_N_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    WDT_A_IRQHandler                         0x00000243   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
-    __user_initial_stackheap                 0x00000245   Thumb Code    10  startup_msp432p401r_uvision.o(.text)
-    __use_two_region_memory                  0x00000265   Thumb Code     2  heapauxi.o(.text)
-    __rt_heap_escrow$2region                 0x00000267   Thumb Code     2  heapauxi.o(.text)
-    __rt_heap_expand$2region                 0x00000269   Thumb Code     2  heapauxi.o(.text)
-    __user_setup_stackheap                   0x0000026b   Thumb Code    74  sys_stackheap_outer.o(.text)
-    exit                                     0x000002b5   Thumb Code    18  exit.o(.text)
-    __user_libspace                          0x000002c9   Thumb Code     8  libspace.o(.text)
-    __user_perproc_libspace                  0x000002c9   Thumb Code     0  libspace.o(.text)
-    __user_perthread_libspace                0x000002c9   Thumb Code     0  libspace.o(.text)
-    _sys_exit                                0x000002d1   Thumb Code     8  sys_exit.o(.text)
-    __I$use$semihosting                      0x000002dd   Thumb Code     0  use_no_semi.o(.text)
-    __use_no_semihosting_swi                 0x000002dd   Thumb Code     2  use_no_semi.o(.text)
-    OS_InitSemaphore                         0x000002df   Thumb Code     4  os.o(i.OS_InitSemaphore)
-    __semihosting_library_function           0x000002df   Thumb Code     0  indicate_semi.o(.text)
-    OS_MailBox_Init                          0x000002e5   Thumb Code    12  os.o(i.OS_MailBox_Init)
-    OS_MailBox_Recv                          0x000002f5   Thumb Code    14  os.o(i.OS_MailBox_Recv)
-    OS_MailBox_Send                          0x0000030d   Thumb Code    16  os.o(i.OS_MailBox_Send)
-    OS_Signal                                0x00000325   Thumb Code     8  os.o(i.OS_Signal)
-    OS_Wait                                  0x0000032d   Thumb Code    16  os.o(i.OS_Wait)
-    Scheduler                                0x0000033d   Thumb Code     2  os.o(i.Scheduler)
-    SystemInit                               0x00000341   Thumb Code    74  system_msp432p401r.o(i.SystemInit)
-    T32_INT1_IRQHandler                      0x000003a1   Thumb Code    16  bsp.o(i.T32_INT1_IRQHandler)
-    TA1_0_IRQHandler                         0x000003b9   Thumb Code    22  bsp.o(i.TA1_0_IRQHandler)
-    TA2_0_IRQHandler                         0x000003d9   Thumb Code    22  bsp.o(i.TA2_0_IRQHandler)
-    TA3_0_IRQHandler                         0x000003f9   Thumb Code    22  texas.o(i.TA3_0_IRQHandler)
-    main                                     0x00000419   Thumb Code    26  lab2.o(i.main)
-    Region$$Table$$Base                      0x00000438   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000458   Number         0  anon$$obj.o(Region$$Table)
+    DisableInterrupts                        0x000001e1   Thumb Code     4  cortexm.o(.emb_text)
+    EnableInterrupts                         0x000001e5   Thumb Code     4  cortexm.o(.emb_text)
+    StartCritical                            0x000001e9   Thumb Code     8  cortexm.o(.emb_text)
+    EndCritical                              0x000001f1   Thumb Code     6  cortexm.o(.emb_text)
+    WaitForInterrupt                         0x000001f7   Thumb Code     4  cortexm.o(.emb_text)
+    delay                                    0x000001fb   Thumb Code     6  cortexm.o(.emb_text)
+    SysTick_Handler                          0x00000201   Thumb Code     0  osasm.o(.text)
+    StartOS                                  0x00000227   Thumb Code     0  osasm.o(.text)
+    Reset_Handler                            0x00000249   Thumb Code     8  startup_msp432p401r_uvision.o(.text)
+    NMI_Handler                              0x00000251   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    HardFault_Handler                        0x00000253   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    MemManage_Handler                        0x00000255   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    BusFault_Handler                         0x00000257   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    UsageFault_Handler                       0x00000259   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    SVC_Handler                              0x0000025b   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    DebugMon_Handler                         0x0000025d   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    PendSV_Handler                           0x0000025f   Thumb Code     2  startup_msp432p401r_uvision.o(.text)
+    ADC14_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    AES256_IRQHandler                        0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    COMP_E0_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    COMP_E1_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    CS_IRQHandler                            0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    DMA_ERR_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    DMA_INT0_IRQHandler                      0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    DMA_INT1_IRQHandler                      0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    DMA_INT2_IRQHandler                      0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    DMA_INT3_IRQHandler                      0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIA0_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIA1_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIA2_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIA3_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIB0_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIB1_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIB2_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    EUSCIB3_IRQHandler                       0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    FLCTL_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    FPU_IRQHandler                           0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PCM_IRQHandler                           0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PORT1_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PORT2_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PORT3_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PORT4_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PORT5_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PORT6_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    PSS_IRQHandler                           0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    RTC_C_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    T32_INT2_IRQHandler                      0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    T32_INTC_IRQHandler                      0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    TA0_0_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    TA0_N_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    TA1_N_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    TA2_N_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    TA3_N_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    WDT_A_IRQHandler                         0x00000263   Thumb Code     0  startup_msp432p401r_uvision.o(.text)
+    __user_initial_stackheap                 0x00000265   Thumb Code    10  startup_msp432p401r_uvision.o(.text)
+    __use_two_region_memory                  0x00000285   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_escrow$2region                 0x00000287   Thumb Code     2  heapauxi.o(.text)
+    __rt_heap_expand$2region                 0x00000289   Thumb Code     2  heapauxi.o(.text)
+    __user_setup_stackheap                   0x0000028b   Thumb Code    74  sys_stackheap_outer.o(.text)
+    exit                                     0x000002d5   Thumb Code    18  exit.o(.text)
+    __user_libspace                          0x000002e9   Thumb Code     8  libspace.o(.text)
+    __user_perproc_libspace                  0x000002e9   Thumb Code     0  libspace.o(.text)
+    __user_perthread_libspace                0x000002e9   Thumb Code     0  libspace.o(.text)
+    _sys_exit                                0x000002f1   Thumb Code     8  sys_exit.o(.text)
+    __I$use$semihosting                      0x000002fd   Thumb Code     0  use_no_semi.o(.text)
+    __use_no_semihosting_swi                 0x000002fd   Thumb Code     2  use_no_semi.o(.text)
+    OS_InitSemaphore                         0x000002ff   Thumb Code     4  os.o(i.OS_InitSemaphore)
+    __semihosting_library_function           0x000002ff   Thumb Code     0  indicate_semi.o(.text)
+    OS_MailBox_Init                          0x00000305   Thumb Code    12  os.o(i.OS_MailBox_Init)
+    OS_MailBox_Recv                          0x00000315   Thumb Code    14  os.o(i.OS_MailBox_Recv)
+    OS_MailBox_Send                          0x0000032d   Thumb Code    16  os.o(i.OS_MailBox_Send)
+    OS_Signal                                0x00000345   Thumb Code    20  os.o(i.OS_Signal)
+    OS_Wait                                  0x00000359   Thumb Code    36  os.o(i.OS_Wait)
+    Scheduler                                0x0000037d   Thumb Code     2  os.o(i.Scheduler)
+    SystemInit                               0x00000381   Thumb Code    74  system_msp432p401r.o(i.SystemInit)
+    T32_INT1_IRQHandler                      0x000003e1   Thumb Code    16  bsp.o(i.T32_INT1_IRQHandler)
+    TA1_0_IRQHandler                         0x000003f9   Thumb Code    22  bsp.o(i.TA1_0_IRQHandler)
+    TA2_0_IRQHandler                         0x00000419   Thumb Code    22  bsp.o(i.TA2_0_IRQHandler)
+    TA3_0_IRQHandler                         0x00000439   Thumb Code    22  texas.o(i.TA3_0_IRQHandler)
+    main                                     0x00000459   Thumb Code    26  lab2.o(i.main)
+    Region$$Table$$Base                      0x00000478   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000498   Number         0  anon$$obj.o(Region$$Table)
     Time                                     0x20000000   Data           4  lab2.o(.data)
     Steps                                    0x20000004   Data           4  lab2.o(.data)
     Magnitude                                0x20000008   Data           4  lab2.o(.data)
@@ -1132,11 +1140,11 @@ Image Symbol Table
 
 Memory Map of the image
 
-  Image Entry point : 0x00000229
+  Image Entry point : 0x00000249
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00000544, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000584, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000458, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000498, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1188,51 +1196,52 @@ Memory Map of the image
     0x000001d4   0x000001d4   0x00000004   Code   RO         1278    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
     0x000001d8   0x000001d8   0x00000006   Code   RO         1279    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x000001de   0x000001de   0x00000002   PAD
-    0x000001e0   0x000001e0   0x00000048   Code   RO          131    .text               osasm.o
-    0x00000228   0x00000228   0x0000003c   Code   RO         1114  * .text               startup_msp432p401r_uvision.o
-    0x00000264   0x00000264   0x00000006   Code   RO         1169    .text               c_w.l(heapauxi.o)
-    0x0000026a   0x0000026a   0x0000004a   Code   RO         1216    .text               c_w.l(sys_stackheap_outer.o)
-    0x000002b4   0x000002b4   0x00000012   Code   RO         1218    .text               c_w.l(exit.o)
-    0x000002c6   0x000002c6   0x00000002   PAD
-    0x000002c8   0x000002c8   0x00000008   Code   RO         1226    .text               c_w.l(libspace.o)
-    0x000002d0   0x000002d0   0x0000000c   Code   RO         1287    .text               c_w.l(sys_exit.o)
-    0x000002dc   0x000002dc   0x00000002   Code   RO         1298    .text               c_w.l(use_no_semi.o)
-    0x000002de   0x000002de   0x00000000   Code   RO         1300    .text               c_w.l(indicate_semi.o)
-    0x000002de   0x000002de   0x00000004   Code   RO          139    i.OS_InitSemaphore  os.o
-    0x000002e2   0x000002e2   0x00000002   PAD
-    0x000002e4   0x000002e4   0x00000010   Code   RO          141    i.OS_MailBox_Init   os.o
-    0x000002f4   0x000002f4   0x00000018   Code   RO          142    i.OS_MailBox_Recv   os.o
-    0x0000030c   0x0000030c   0x00000018   Code   RO          143    i.OS_MailBox_Send   os.o
-    0x00000324   0x00000324   0x00000008   Code   RO          144    i.OS_Signal         os.o
-    0x0000032c   0x0000032c   0x00000010   Code   RO          145    i.OS_Wait           os.o
-    0x0000033c   0x0000033c   0x00000002   Code   RO          146    i.Scheduler         os.o
-    0x0000033e   0x0000033e   0x00000002   PAD
-    0x00000340   0x00000340   0x00000060   Code   RO         1122    i.SystemInit        system_msp432p401r.o
-    0x000003a0   0x000003a0   0x00000018   Code   RO          288    i.T32_INT1_IRQHandler  bsp.o
-    0x000003b8   0x000003b8   0x00000020   Code   RO          289    i.TA1_0_IRQHandler  bsp.o
-    0x000003d8   0x000003d8   0x00000020   Code   RO          290    i.TA2_0_IRQHandler  bsp.o
-    0x000003f8   0x000003f8   0x00000020   Code   RO          807    i.TA3_0_IRQHandler  texas.o
-    0x00000418   0x00000418   0x00000020   Code   RO           11    i.main              lab2.o
-    0x00000438   0x00000438   0x00000020   Data   RO         1353    Region$$Table       anon$$obj.o
+    0x000001e0   0x000001e0   0x00000020   Code   RO          743    .emb_text           cortexm.o
+    0x00000200   0x00000200   0x00000048   Code   RO          131    .text               osasm.o
+    0x00000248   0x00000248   0x0000003c   Code   RO         1114  * .text               startup_msp432p401r_uvision.o
+    0x00000284   0x00000284   0x00000006   Code   RO         1169    .text               c_w.l(heapauxi.o)
+    0x0000028a   0x0000028a   0x0000004a   Code   RO         1216    .text               c_w.l(sys_stackheap_outer.o)
+    0x000002d4   0x000002d4   0x00000012   Code   RO         1218    .text               c_w.l(exit.o)
+    0x000002e6   0x000002e6   0x00000002   PAD
+    0x000002e8   0x000002e8   0x00000008   Code   RO         1226    .text               c_w.l(libspace.o)
+    0x000002f0   0x000002f0   0x0000000c   Code   RO         1287    .text               c_w.l(sys_exit.o)
+    0x000002fc   0x000002fc   0x00000002   Code   RO         1298    .text               c_w.l(use_no_semi.o)
+    0x000002fe   0x000002fe   0x00000000   Code   RO         1300    .text               c_w.l(indicate_semi.o)
+    0x000002fe   0x000002fe   0x00000004   Code   RO          139    i.OS_InitSemaphore  os.o
+    0x00000302   0x00000302   0x00000002   PAD
+    0x00000304   0x00000304   0x00000010   Code   RO          141    i.OS_MailBox_Init   os.o
+    0x00000314   0x00000314   0x00000018   Code   RO          142    i.OS_MailBox_Recv   os.o
+    0x0000032c   0x0000032c   0x00000018   Code   RO          143    i.OS_MailBox_Send   os.o
+    0x00000344   0x00000344   0x00000014   Code   RO          144    i.OS_Signal         os.o
+    0x00000358   0x00000358   0x00000024   Code   RO          145    i.OS_Wait           os.o
+    0x0000037c   0x0000037c   0x00000002   Code   RO          146    i.Scheduler         os.o
+    0x0000037e   0x0000037e   0x00000002   PAD
+    0x00000380   0x00000380   0x00000060   Code   RO         1122    i.SystemInit        system_msp432p401r.o
+    0x000003e0   0x000003e0   0x00000018   Code   RO          288    i.T32_INT1_IRQHandler  bsp.o
+    0x000003f8   0x000003f8   0x00000020   Code   RO          289    i.TA1_0_IRQHandler  bsp.o
+    0x00000418   0x00000418   0x00000020   Code   RO          290    i.TA2_0_IRQHandler  bsp.o
+    0x00000438   0x00000438   0x00000020   Code   RO          807    i.TA3_0_IRQHandler  texas.o
+    0x00000458   0x00000458   0x00000020   Code   RO           11    i.main              lab2.o
+    0x00000478   0x00000478   0x00000020   Data   RO         1353    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00000458, Size: 0x000000ec, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00000498, Size: 0x000000ec, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000458   0x0000004e   Data   RW           19    .data               lab2.o
-    0x2000004e   0x000004a6   0x00000002   PAD
-    0x20000050   0x000004a8   0x0000000c   Data   RW          149    .data               os.o
-    0x2000005c   0x000004b4   0x0000005c   Data   RW          310    .data               bsp.o
-    0x200000b8   0x00000510   0x00000034   Data   RW          839    .data               texas.o
+    0x20000000   0x00000498   0x0000004e   Data   RW           19    .data               lab2.o
+    0x2000004e   0x000004e6   0x00000002   PAD
+    0x20000050   0x000004e8   0x0000000c   Data   RW          149    .data               os.o
+    0x2000005c   0x000004f4   0x0000005c   Data   RW          310    .data               bsp.o
+    0x200000b8   0x00000550   0x00000034   Data   RW          839    .data               texas.o
 
 
-    Execution Region ER_ZI (Exec base: 0x200000ec, Load base: 0x00000544, Size: 0x00000264, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x200000ec, Load base: 0x00000584, Size: 0x00000264, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x200000ec        -       0x00000060   Zero   RW         1227    .bss                c_w.l(libspace.o)
-    0x2000014c   0x00000544   0x00000004   PAD
+    0x2000014c   0x00000584   0x00000004   PAD
     0x20000150        -       0x00000000   Zero   RW         1112    HEAP                startup_msp432p401r_uvision.o
     0x20000150        -       0x00000200   Zero   RW         1111    STACK               startup_msp432p401r_uvision.o
 
@@ -1245,15 +1254,16 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         88         28          0         92          0       4692   bsp.o
+        32          0          0          0          0        536   cortexm.o
         32          6          0         78          0       7905   lab2.o
-        94         22          0         12          0       3555   os.o
+       126         22          0         12          0       3659   os.o
         72          4          0          0          0        260   osasm.o
         60         22        324          0        512        872   startup_msp432p401r_uvision.o
         96         22          0          0          0        473   system_msp432p401r.o
         32         10          0         52          0       7371   texas.o
 
     ----------------------------------------------------------------------
-       478        114        356        236        512      25128   Object Totals
+       542        114        356        236        512      25768   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          0          2          0          0   (incl. Padding)
 
@@ -1302,15 +1312,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       756        130        356        236        612      25084   Grand Totals
-       756        130        356        236        612      25084   ELF Image Totals
-       756        130        356        236          0          0   ROM Totals
+       820        130        356        236        612      25620   Grand Totals
+       820        130        356        236        612      25620   ELF Image Totals
+       820        130        356        236          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1112 (   1.09kB)
+    Total RO  Size (Code + RO Data)                 1176 (   1.15kB)
     Total RW  Size (RW Data + ZI Data)               848 (   0.83kB)
-    Total ROM Size (Code + RO Data + RW Data)       1348 (   1.32kB)
+    Total ROM Size (Code + RO Data + RW Data)       1412 (   1.38kB)
 
 ==============================================================================
 
