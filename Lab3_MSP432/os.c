@@ -27,13 +27,28 @@ tcbType tcbs[NUMTHREADS];
 tcbType *RunPt;
 int32_t Stacks[NUMTHREADS][STACKSIZE];
 
+uint32_t timecount = 0;
+uint32_t periodA, periodB;
+void (*periodTaskA)(void) = 0;
+void (*periodTaskB)(void) = 0;
+
+
 void static runperiodicevents(void){
+	timecount++;
 // ****IMPLEMENT THIS****
 // **RUN PERIODIC THREADS, DECREMENT SLEEP COUNTERS
 	for(int i = 0; i < NUMTHREADS; i++){
 		if(tcbs[i].sleep) {
 			tcbs[i].sleep--;
 		}
+	}
+	
+	if(periodTaskA && (!(timecount%periodA))){
+		(*periodTaskA)();
+	}
+	
+	if(periodTaskB && (!(timecount%periodB))){
+		(*periodTaskB)();
 	}
 	
 }
@@ -123,6 +138,13 @@ int OS_AddThreads(void(*thread0)(void),
 // In Lab 3 this will be called exactly twice
 int OS_AddPeriodicEventThread(void(*thread)(void), uint32_t period){
 // ****IMPLEMENT THIS****
+	if(!periodTaskA) {
+		periodTaskA = thread;
+		periodA = period;
+	} else {
+		periodTaskB = thread;
+		periodB = period;
+	}
   return 1;
 
 }

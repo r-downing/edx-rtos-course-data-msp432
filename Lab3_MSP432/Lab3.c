@@ -760,8 +760,8 @@ void TaskR(void){ // dummy
   }
 }
 
-int main(void){
-//int main_step4(void){
+//int main(void){
+int main_step4(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_FIFO_Init();
@@ -875,6 +875,7 @@ void TaskZ(void){ // dummy
   }
 }
 
+//int main(void){
 int main_step5(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
@@ -883,8 +884,8 @@ int main_step5(void){
   OS_AddThreads(&TaskT, &TaskV, &TaskW, &TaskX, &TaskY, &TaskZ);
   OS_AddPeriodicEventThread(&TaskS, 10);
   OS_AddPeriodicEventThread(&TaskU, 100);
-//  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
-  TExaS_Init(GRADESTEP5, 1000);    // initialize the Lab 3 grader
+  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
+  //TExaS_Init(GRADESTEP5, 1000);    // initialize the Lab 3 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
 }
@@ -1217,7 +1218,7 @@ int main_step5(void){
 // Remember that you must have exactly one main() function, so
 // to work on this step, you must rename all other main()
 // functions in this file.
-int mainx(void){
+int main(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   Task0_Init();    // microphone init
@@ -1247,7 +1248,7 @@ int mainx(void){
   OS_AddThreads(&Task2, &Task3, &Task4, &Task5, &Task6, &Task7);
   // when grading change 1000 to 4-digit number from edX
   BSP_LCD_FillScreen(BSP_LCD_Color565(0, 0, 0));
-  TExaS_Init(GRADER, 1000);          // initialize the Lab 3 grader
+  TExaS_Init(GRADER, 9238);          // initialize the Lab 3 grader
 //  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 logic analyzer
   OS_Launch(BSP_Clock_GetFreq()/THREADFREQ); // doesn't return, interrupts enabled in here
   return 0;             // this never executes
