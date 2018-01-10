@@ -100,7 +100,8 @@
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
-        <nTsel>12</nTsel>
+        <bEvRecOn>1</bEvRecOn>
+        <nTsel>2</nTsel>
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -117,7 +118,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>UL2CM3</Key>
-          <Name>UL2CM3(-S0 -C0 -P0 -FD01000000 -FCE000 -FN2 -FF0MSP432P4xx_MainFlash256kB -FS00 -FL040000 -FF1MSP432P4xx_InfoFlash -FS1200000 -FL14000 -FP0($$Device:MSP432P401R$Flash\MSP432P4xx_MainFlash256kB.FLM) -FP1($$Device:MSP432P401R$Flash\MSP432P4xx_InfoFlash.FLM))</Name>
+          <Name>UL2CM3(-S0 -C0 -P0 -FD01000000 -FCE000 -FN2 -FF0MSP432P4xx_MainFlash256kB -FS00 -FL040000 -FF1MSP432P4xx_InfoFlash -FS1200000 -FL14000 -FP0($$Device:MSP432P401R$FlashARM\MSP432P4xx_MainFlash256kB.FLM) -FP1($$Device:MSP432P401R$FlashARM\MSP432P4xx_InfoFlash.FLM))</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
@@ -152,6 +153,17 @@
       </DebugFlag>
       <LintExecutable></LintExecutable>
       <LintConfigFile></LintConfigFile>
+      <bLintAuto>0</bLintAuto>
+      <bAutoGenD>0</bAutoGenD>
+      <LntExFlags>0</LntExFlags>
+      <pMisraName></pMisraName>
+      <pszMrule></pszMrule>
+      <pSingCmds></pSingCmds>
+      <pMultCmds></pMultCmds>
+      <pMisraNamep></pMisraNamep>
+      <pszMrulep></pszMrulep>
+      <pSingCmdsp></pSingCmdsp>
+      <pMultCmdsp></pMultCmdsp>
       <DebugDescription>
         <Enable>1</Enable>
         <EnableLog>0</EnableLog>
@@ -172,7 +184,6 @@
       <FileNumber>1</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
-      <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\ClockSystem.c</PathWithFileName>
@@ -185,7 +196,6 @@
       <FileNumber>2</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
-      <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\PeriodicTimer32Ints.c</PathWithFileName>
@@ -198,7 +208,6 @@
       <FileNumber>3</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
-      <Focus>0</Focus>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Timer32.c</PathWithFileName>
