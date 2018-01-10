@@ -18,8 +18,8 @@ void StartOS(void);
 struct tcb{
   int32_t *sp;       // pointer to stack (valid for threads not running
   struct tcb *next;  // linked-list pointer
-   // nonzero if blocked on this semaphore
-   // nonzero if this thread is sleeping
+	int32_t *blocked;   // nonzero if blocked on this semaphore
+  int32_t sleep;// nonzero if this thread is sleeping
 //*FILL THIS IN****
 };
 typedef struct tcb tcbType;
@@ -103,6 +103,10 @@ void OS_Launch(uint32_t theTimeSlice){
 void Scheduler(void){ // every time slice
 // ****IMPLEMENT THIS****
 // ROUND ROBIN, skip blocked and sleeping threads
+  RunPt = RunPt->next;    // run next thread not blocked
+  while(RunPt->blocked){  // skip if blocked
+    RunPt = RunPt->next;
+  } 
 }
 
 //******** OS_Suspend ***************
@@ -134,6 +138,7 @@ void OS_Sleep(uint32_t sleepTime){
 // Outputs: none
 void OS_InitSemaphore(int32_t *semaPt, int32_t value){
 //***IMPLEMENT THIS***
+	(*semaPt) = value;
 }
 
 // ******** OS_Wait ************
@@ -144,6 +149,14 @@ void OS_InitSemaphore(int32_t *semaPt, int32_t value){
 // Outputs: none
 void OS_Wait(int32_t *semaPt){
 //***IMPLEMENT THIS***
+	DisableInterrupts();
+  (*semaPt) = (*semaPt) - 1;
+  if((*semaPt) < 0){
+    RunPt->blocked = semaPt; // reason it is blocked
+    EnableInterrupts();
+    OS_Suspend();       // run thread switcher
+  }
+  EnableInterrupts();
 }
 
 // ******** OS_Signal ************
@@ -154,6 +167,17 @@ void OS_Wait(int32_t *semaPt){
 // Outputs: none
 void OS_Signal(int32_t *semaPt){
 //***IMPLEMENT THIS***
+	tcbType *pt;
+  DisableInterrupts();
+  (*semaPt) = (*semaPt) + 1;
+  if((*semaPt) <= 0){
+    pt = RunPt->next;   // search for a thread blocked on this semaphore
+    while(pt->blocked != semaPt){
+      pt = pt->next;
+    }
+    pt->blocked = 0;    // wakeup this one
+  }
+  EnableInterrupts();
 }
 
 #define FSIZE 10    // can be any size

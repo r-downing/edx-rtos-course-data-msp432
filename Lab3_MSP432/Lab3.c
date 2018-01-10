@@ -469,7 +469,8 @@ void Task7(void){
 // to work on this step, you must rename all other main()
 // functions in this file.
 int32_t s1,s2;
-int main_step1(void){
+int main(void){
+//int main_step1(void){
   OS_InitSemaphore(&s1, 0);
   OS_InitSemaphore(&s2, 1);
   while(1){
@@ -1213,7 +1214,7 @@ int main_step5(void){
 // Remember that you must have exactly one main() function, so
 // to work on this step, you must rename all other main()
 // functions in this file.
-int main(void){
+int mainx(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   Task0_Init();    // microphone init
