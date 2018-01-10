@@ -361,9 +361,33 @@ void OS_EdgeTrigger_Init(int32_t *semaPt, uint8_t priority){
 	edgeSemaphore = semaPt;
 //***IMPLEMENT THIS***
   // P5.1 input with pullup
-  // (c) P5.1 is falling edge event
-  // (d) clear flag1 
-  // (e) arm interrupt on P5.1
+	
+	OS_InitSemaphore(edgeSemaphore, 0);
+	/*
+	P5SEL1 &= ~0x2;
+	P5SEL0 &= ~0x2;
+	P5DIR &= ~0x2;
+	P5REN |= 0x2;
+	P5OUT |= 0x2;
+	P5IES |= 0x2; // (c) P5.1 is falling edge event
+	
+	P5IFG &= ~0x2; // (d) clear flag1 
+	P1IE |= 0x2;   // (e) arm interrupt on P5.1
+	NVIC_IPR9 = (NVIC_IPR9)|(priority << 29);
+	NVIC_ISER1 &= (1<<7);
+  */
+	
+  P1SEL1 &= ~0x2;              // (b) configure P1.1, P1.4 as GPIO
+  P1SEL0 &= ~0x2;              //     built-in Buttons 1 and 2
+  P1DIR &= ~0x2;               //     make P1.1, P1.4 in
+  P1REN |= 0x2;                //     enable pull resistors
+  P1OUT |= 0x2;                //     P1.1, P1.4 is pull-up
+  P1IES |= 0x2;                // (c) P1.1, P1.4 is falling edge event
+  P1IFG &= ~0x2;               // (d) clear flag1 and flag4
+  P1IE |= 0x2;                 // (e) arm interrupt on P1.1, P1.4
+  NVIC_IPR8 = (NVIC_IPR8&0x00FFFFFF)|0x40000000; // (f) priority 2
+  NVIC_ISER1 = 0x00000008;      // (g) enable interrupt 35 in NVIC
+	
   // (f) priority 
   // (g) enable interrupt 39 in NVIC
 }
@@ -375,13 +399,32 @@ void OS_EdgeTrigger_Init(int32_t *semaPt, uint8_t priority){
 // Outputs: none
 void OS_EdgeTrigger_Restart(void){
 //***IMPLEMENT THIS***
+	P1IE |= 0x2;
+	NVIC_ISER1 = 0x00000008;
+	P1IFG &= ~0x2;
+	
+	/*
+		P5IE |= 0x2;   // (e) arm interrupt on P5.1
   // (g) enable interrupt 39 in NVIC
+	NVIC_ISER1 &= (1<<7);
+
   // (d) clear flag1 
+	P5IFG &= ~0x2;
+	*/
+
 }
-void PORT5_IRQHandler(void){
+void PORT1_IRQHandler(void){
 //***IMPLEMENT THIS***
   // step 1 acknowledge by clearing flag
+	/*
+	uint16_t status = P5IV;
+		P5IFG &= ~0x2;
+*/
+	uint16_t status = P1IV;
   // step 2 signal semaphore (no need to run scheduler)
+	OS_Signal(edgeSemaphore);
   // step 3 disarm interrupt to prevent bouncing to create multiple signals
+	//P5IE &= ~0x2;
+	P1IE &= ~0x2;
 }
 
