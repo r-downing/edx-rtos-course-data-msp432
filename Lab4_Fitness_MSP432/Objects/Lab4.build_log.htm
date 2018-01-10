@@ -1,0 +1,76 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Ryan Downing, ID, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.24.1
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      CMSIS_AGDI.dll V1.28.3.0
+Dialog DLL:      TCM.DLL V1.32.0.0
+ 
+<h2>Project:</h2>
+C:\Keil_v5\MSP432ValvanoWare\Lab4_Fitness_MSP432\Lab4.uvprojx
+Project File Date:  01/10/2018
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Lab4'
+compiling os.c...
+../inc/msp432p401r.h(16180): warning:  #47-D: incompatible redefinition of macro "RSTCTL_PSSRESET_STAT_SVSL"  (declared at line 314 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
+  #define RSTCTL_PSSRESET_STAT_SVSL                          (0x00000001)          /* Indicates if POR was caused by an SVSL trip condition in the PSS */
+../inc/msp432p401r.h(17341): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_DBG_SEC_ACT"  (declared at line 318 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
+  #define SYSCTL_SYSTEM_STAT_DBG_SEC_ACT                     (0x00000008)          /* Debug Security active */
+../inc/msp432p401r.h(17344): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_JTAG_SWD_LOCK_ACT"  (declared at line 321 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
+  #define SYSCTL_SYSTEM_STAT_JTAG_SWD_LOCK_ACT               (0x00000010)          /* Indicates if JTAG and SWD Lock is active */
+../inc/msp432p401r.h(17347): warning:  #47-D: incompatible redefinition of macro "SYSCTL_SYSTEM_STAT_IP_PROT_ACT"  (declared at line 324 of "C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h")
+  #define SYSCTL_SYSTEM_STAT_IP_PROT_ACT                     (0x00000020)          /* Indicates if IP protection is active */
+os.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=9452 RO-data=428 RW-data=412 ZI-data=5748  
+".\Objects\Lab4.axf" - 0 Error(s), 4 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.2.0.pack
+                ARM.CMSIS.5.2.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.2
+
+Package Vendor: TexasInstruments
+                http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/msp432cmsis/latest/exports/TexasInstruments.MSP432P4xx_DFP.3.2.2.pack
+                TexasInstruments.MSP432P4xx_DFP.3.2.2
+                Device Family Pack for Texas Instruments SimpleLink(TM) MSP432 Series
+   * Component: Startup Version: 3.2.2
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Lab4
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: TexasInstruments::Device:Startup:3.2.2
+      Source file:   Examples\BlinkLED\blinkLED.c
+      Include file:  Device\Include\msp_compatibility.h
+      Source file:   Examples\EmptyMain\main.c
+      Source file:   Device\Source\system_msp432p401r.c
+      Source file:   Device\Source\startup_msp432p401r_uvision.s
+
+   * Component: ARM::CMSIS:CORE:5.0.2
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

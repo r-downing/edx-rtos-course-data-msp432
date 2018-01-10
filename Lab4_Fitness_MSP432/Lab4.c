@@ -459,7 +459,7 @@ void Task7(void){
 // Remember that you must have exactly one main() function, so
 // to work on this step, you must rename all other main()
 // functions in this file.
-int main(void){
+int mainx(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   BSP_Button1_Init();
@@ -595,7 +595,8 @@ void TaskH(void){ // dummy
     CountH++;
   }
 }
-int main_step1(void){
+int main(void){
+//int main_step1(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_InitSemaphore(&sAB, 0);
@@ -604,7 +605,7 @@ int main_step1(void){
   OS_AddThreads(&TaskA,0, &TaskB,1, &TaskC,2, &TaskD,3,
    	&TaskE,4, &TaskF,5, &TaskG,6, &TaskH,7);
   TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 4 grader
-//  TExaS_Init(GRADESTEP1, 1000);    // initialize the Lab 4 grader
+  //TExaS_Init(GRADESTEP1, 1000);    // initialize the Lab 4 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
 }

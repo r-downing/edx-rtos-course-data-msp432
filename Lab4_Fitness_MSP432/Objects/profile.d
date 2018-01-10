@@ -1,0 +1,9 @@
+.\objects\profile.o: ..\inc\Profile.c
+.\objects\profile.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\profile.o: ..\inc\../inc/msp432p401r.h
+.\objects\profile.o: C:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include\msp_compatibility.h
+.\objects\profile.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\core_cm4.h
+.\objects\profile.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_version.h
+.\objects\profile.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_compiler.h
+.\objects\profile.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\cmsis_armcc.h
+.\objects\profile.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include\mpu_armv7.h
