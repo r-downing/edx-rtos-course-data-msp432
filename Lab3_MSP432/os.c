@@ -29,9 +29,24 @@ tcbType tcbs[NUMTHREADS];
 tcbType *RunPt;
 int32_t Stacks[NUMTHREADS][STACKSIZE];
 
+uint32_t PEPs[3];
+void (*PETs[3])();
+uint32_t nPETs = 0;
+uint64_t timeCount = 0;
+
 void static runperiodicevents(void){
 // ****IMPLEMENT THIS****
 // **RUN PERIODIC THREADS, DECREMENT SLEEP COUNTERS
+	
+	/*
+	timeCount++;
+	for(int i=0; i< nPETs; i++){
+		if(!(PEPs[i]%timeCount)){
+			PETs[i]();
+		}
+	}
+	*/
+	
 	for(int i = 0; i < NUMTHREADS; i++){
 		if(tcbs[i].sleep) {
 			tcbs[i].sleep--;
@@ -121,8 +136,11 @@ int OS_AddThreads(void(*thread0)(void),
 // These threads cannot spin, block, loop, sleep, or kill
 // These threads can call OS_Signal
 // In Lab 3 this will be called exactly twice
+
 int OS_AddPeriodicEventThread(void(*thread)(void), uint32_t period){
 // ****IMPLEMENT THIS****
+	PETs[nPETs] = thread;
+	PEPs[nPETs++] = period;
   return 1;
 
 }
@@ -198,7 +216,7 @@ void OS_InitSemaphore(int32_t *semaPt, int32_t value){
 void OS_Wait(int32_t *semaPt){
 //***IMPLEMENT THIS***
 	DisableInterrupts();
-	(*semaPt)--;
+	(*semaPt) = (*semaPt)-1;
 	if((*semaPt)<0) {
 		RunPt->blocked = semaPt;
 		EnableInterrupts();
@@ -217,7 +235,7 @@ void OS_Signal(int32_t *semaPt){
 //***IMPLEMENT THIS***
 	tcbType *pt;
 	DisableInterrupts();
-	(*semaPt)++;
+	(*semaPt) = (*semaPt)+1;
 	if ((*semaPt) <= 0){
 		pt = RunPt->next;
 		while(pt->blocked != semaPt) { //search for blocked

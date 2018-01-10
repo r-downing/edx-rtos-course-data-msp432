@@ -760,8 +760,8 @@ void TaskR(void){ // dummy
   }
 }
 
-int main(void) {
-//int main_step4(void){
+//int main(void) {
+int main_step4(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_FIFO_Init();
@@ -875,7 +875,8 @@ void TaskZ(void){ // dummy
   }
 }
 
-int main_step5(void){
+int main(void){
+//int main_step5(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_FIFO_Init();
@@ -883,8 +884,8 @@ int main_step5(void){
   OS_AddThreads(&TaskT, &TaskV, &TaskW, &TaskX, &TaskY, &TaskZ);
   OS_AddPeriodicEventThread(&TaskS, 10);
   OS_AddPeriodicEventThread(&TaskU, 100);
-//  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
-  TExaS_Init(GRADESTEP5, 1000);    // initialize the Lab 3 grader
+  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
+  //TExaS_Init(GRADESTEP5, 1000);    // initialize the Lab 3 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
 }
