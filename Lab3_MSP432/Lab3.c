@@ -306,7 +306,7 @@ void Task3(void){
         PlotState = Accelerometer;
       }
       ReDrawAxes = 1;                // redraw axes on next call of display task
-      BSP_Buzzer_Set(112);           // beep until next call of this task
+      BSP_Buzzer_Set(512);           // beep until next call of this task
     }
     prev1 = current;
     current = BSP_Button2_Input();
@@ -322,7 +322,7 @@ void Task3(void){
         PlotState = Temperature;
       }
       ReDrawAxes = 1;                // redraw axes on next call of display task
-      BSP_Buzzer_Set(112);           // beep until next call of this task
+      BSP_Buzzer_Set(512);           // beep until next call of this task
     }
     prev2 = current;
     // update the LED
@@ -469,7 +469,6 @@ void Task7(void){
 // to work on this step, you must rename all other main()
 // functions in this file.
 int32_t s1,s2;
-//int main(void){
 int main_step1(void){
   OS_InitSemaphore(&s1, 0);
   OS_InitSemaphore(&s2, 1);
@@ -560,7 +559,6 @@ void TaskF(void){ // consumer
   }
 }
 
-//int main(void){
 int main_step2(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
@@ -657,7 +655,6 @@ void TaskL(void){ // dummy
   }
 }
 
-//int main(void){
 int main_step3(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
@@ -760,13 +757,12 @@ void TaskR(void){ // dummy
   }
 }
 
-//int main(void) {
 int main_step4(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_FIFO_Init();
   OS_AddThreads(&TaskM, &TaskN, &TaskO, &TaskP, &TaskQ, &TaskR);
-  //TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
+//  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
   TExaS_Init(GRADESTEP4, 1000);    // initialize the Lab 3 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
@@ -875,8 +871,7 @@ void TaskZ(void){ // dummy
   }
 }
 
-int main(void){
-//int main_step5(void){
+int main_step5(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_FIFO_Init();
@@ -884,8 +879,8 @@ int main(void){
   OS_AddThreads(&TaskT, &TaskV, &TaskW, &TaskX, &TaskY, &TaskZ);
   OS_AddPeriodicEventThread(&TaskS, 10);
   OS_AddPeriodicEventThread(&TaskU, 100);
-  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
-  //TExaS_Init(GRADESTEP5, 1000);    // initialize the Lab 3 grader
+//  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
+  TExaS_Init(GRADESTEP5, 1000);    // initialize the Lab 3 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
 }
@@ -1218,7 +1213,7 @@ int main(void){
 // Remember that you must have exactly one main() function, so
 // to work on this step, you must rename all other main()
 // functions in this file.
-int mainx(void){
+int main(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   Task0_Init();    // microphone init
