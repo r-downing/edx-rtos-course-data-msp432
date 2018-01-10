@@ -469,8 +469,8 @@ void Task7(void){
 // to work on this step, you must rename all other main()
 // functions in this file.
 int32_t s1,s2;
-int main(void){
-//int main_step1(void){
+//int main(void){
+int main_step1(void){
   OS_InitSemaphore(&s1, 0);
   OS_InitSemaphore(&s2, 1);
   while(1){
@@ -560,15 +560,16 @@ void TaskF(void){ // consumer
   }
 }
 
-int main_step2(void){
+int main(void){
+//int main_step2(void){
   OS_Init();
   Profile_Init();  // initialize the 7 hardware profiling pins
   OS_InitSemaphore(&sAB, 0);
   OS_InitSemaphore(&sCD, 0);
   OS_InitSemaphore(&sEF, 0);
   OS_AddThreads(&TaskA, &TaskB, &TaskC, &TaskD, &TaskE, &TaskF);
-//  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
-  TExaS_Init(GRADESTEP2, 1000);    // initialize the Lab 3 grader
+  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 3 grader
+  //TExaS_Init(GRADESTEP2, 1000);    // initialize the Lab 3 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
 }
