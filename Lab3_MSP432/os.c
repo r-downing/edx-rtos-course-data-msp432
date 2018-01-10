@@ -27,6 +27,16 @@ tcbType tcbs[NUMTHREADS];
 tcbType *RunPt;
 int32_t Stacks[NUMTHREADS][STACKSIZE];
 
+void static runperiodicevents(void){
+// ****IMPLEMENT THIS****
+// **RUN PERIODIC THREADS, DECREMENT SLEEP COUNTERS
+	for(int i = 0; i < NUMTHREADS; i++){
+		if(tcbs[i].sleep) {
+			tcbs[i].sleep--;
+		}
+	}
+	
+}
 
 // ******** OS_Init ************
 // Initialize operating system, disable interrupts
@@ -40,6 +50,7 @@ void OS_Init(void){
 // perform any initializations needed, 
 // like setting up periodic timer to run runperiodicevents
 
+	BSP_PeriodicTask_Init(&runperiodicevents, 1000, 2);
 }
 
 void SetInitialStack(int i){
@@ -83,6 +94,11 @@ int OS_AddThreads(void(*thread0)(void),
 	tcbs[3].next = &tcbs[4]; // 3 points to 0
 	tcbs[4].next = &tcbs[5]; // 3 points to 0
 	tcbs[5].next = &tcbs[0]; // 3 points to 0
+										
+	for(int i = 0; i< NUMTHREADS; i++){
+		tcbs[i].blocked = 0;
+		tcbs[i].sleep = 0;
+	}
 	SetInitialStack(0); Stacks[0][STACKSIZE-2] = (int32_t)(thread0); // PC
   SetInitialStack(1); Stacks[1][STACKSIZE-2] = (int32_t)(thread1); // PC
   SetInitialStack(2); Stacks[2][STACKSIZE-2] = (int32_t)(thread2); // PC
@@ -111,11 +127,6 @@ int OS_AddPeriodicEventThread(void(*thread)(void), uint32_t period){
 
 }
 
-void static runperiodicevents(void){
-// ****IMPLEMENT THIS****
-// **RUN PERIODIC THREADS, DECREMENT SLEEP COUNTERS
-
-}
 
 //******** OS_Launch ***************
 // Start the scheduler, enable interrupts
@@ -135,7 +146,7 @@ void Scheduler(void){ // every time slice
 // ****IMPLEMENT THIS****
 // ROUND ROBIN, skip blocked and sleeping threads
   RunPt = RunPt->next;    // run next thread not blocked
-  while(RunPt->blocked){  // skip if blocked
+  while(RunPt->blocked || RunPt->sleep){  // skip if blocked
     RunPt = RunPt->next;
   } 
 }
@@ -160,6 +171,8 @@ void OS_Sleep(uint32_t sleepTime){
 // ****IMPLEMENT THIS****
 // set sleep parameter in TCB
 // suspend, stops running
+	RunPt->sleep = sleepTime;
+	OS_Suspend();
 }
 
 // ******** OS_InitSemaphore ************

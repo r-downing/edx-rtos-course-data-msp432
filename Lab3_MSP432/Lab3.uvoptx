@@ -158,6 +158,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>s2</ItemText>
         </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>tcbs[4].sleep</ItemText>
+        </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
