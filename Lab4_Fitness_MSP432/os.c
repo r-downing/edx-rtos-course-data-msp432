@@ -44,6 +44,7 @@ void OS_Init(void){
 
 // perform any initializations needed, 
 // set up periodic timer to run runperiodicevents to implement sleeping
+	BSP_PeriodicTask_Init(&runperiodicevents, 1000, 2);
 
 }
 
@@ -113,8 +114,8 @@ int OS_AddThreads(void(*thread0)(void), uint32_t p0,
   SetInitialStack(3); Stacks[3][STACKSIZE-2] = (int32_t)(thread3); // PC
   SetInitialStack(4); Stacks[4][STACKSIZE-2] = (int32_t)(thread4); // PC
   SetInitialStack(5); Stacks[5][STACKSIZE-2] = (int32_t)(thread5); // PC
-  SetInitialStack(6); Stacks[6][STACKSIZE-2] = (int32_t)(thread5); // PC
-  SetInitialStack(7); Stacks[7][STACKSIZE-2] = (int32_t)(thread5); // PC
+  SetInitialStack(6); Stacks[6][STACKSIZE-2] = (int32_t)(thread6); // PC
+  SetInitialStack(7); Stacks[7][STACKSIZE-2] = (int32_t)(thread7); // PC
   RunPt = &tcbs[0];       // thread 0 will run first
 	EndCritical(status);
   return 1;               // successful
@@ -125,6 +126,11 @@ void static runperiodicevents(void){
 // ****IMPLEMENT THIS****
 // **DECREMENT SLEEP COUNTERS
 // In Lab 4, handle periodic events in RealTimeEvents
+	for(int i = 0; i < NUMTHREADS; i++){
+		if(tcbs[i].sleep) {
+			tcbs[i].sleep--;
+		}
+	}
 }
 
 //******** OS_Launch ***************
@@ -146,6 +152,18 @@ void Scheduler(void){      // every time slice
 // look at all threads in TCB list choose
 // highest priority thread not blocked and not sleeping 
 // If there are multiple highest priority (not blocked, not sleeping) run these round robin
+  uint32_t max = 255; // max
+  tcbType *pt;
+  tcbType *bestPt;
+  pt = RunPt;         // search for highest thread not blocked or sleeping
+  do{
+    pt = pt->next;    // skips at least one
+    if((pt->Priority < max)&&((pt->blocked)==0)&&((pt->sleep)==0)){
+      max = pt->Priority;
+      bestPt = pt;
+    }
+  } while(RunPt != pt); // look at all possible threads
+  RunPt = bestPt; 
 }
 
 //******** OS_Suspend ***************

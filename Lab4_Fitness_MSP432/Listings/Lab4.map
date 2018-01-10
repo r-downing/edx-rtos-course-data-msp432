@@ -944,61 +944,61 @@ Image Symbol Table
     i.LogicAnalyzer                          0x00000a70   Section        0  texas.o(i.LogicAnalyzer)
     i.NonrealTimeResults                     0x00000a84   Section        0  texas.o(i.NonrealTimeResults)
     i.OS_AddThreads                          0x00000b24   Section        0  os.o(i.OS_AddThreads)
-    i.OS_Init                                0x00000c54   Section        0  os.o(i.OS_Init)
-    i.OS_InitSemaphore                       0x00000c70   Section        0  os.o(i.OS_InitSemaphore)
-    i.OS_Launch                              0x00000c74   Section        0  os.o(i.OS_Launch)
-    i.OS_Signal                              0x00000ca8   Section        0  os.o(i.OS_Signal)
-    i.OS_Sleep                               0x00000cdc   Section        0  os.o(i.OS_Sleep)
-    i.OS_Suspend                             0x00000cf0   Section        0  os.o(i.OS_Suspend)
-    i.OS_Wait                                0x00000d08   Section        0  os.o(i.OS_Wait)
-    i.PORT5_IRQHandler                       0x00000d34   Section        0  os.o(i.PORT5_IRQHandler)
-    i.PeriodicTask2_Init                     0x00000d38   Section        0  texas.o(i.PeriodicTask2_Init)
-    i.PeriodicTask2_Stop                     0x00000dd4   Section        0  texas.o(i.PeriodicTask2_Stop)
-    i.Profile_Init                           0x00000df0   Section        0  profile.o(i.Profile_Init)
-    i.RealTimeResults                        0x00000f48   Section        0  texas.o(i.RealTimeResults)
-    i.RealTimeResultsNoJitter                0x00001000   Section        0  texas.o(i.RealTimeResultsNoJitter)
-    i.Scheduler                              0x000010b4   Section        0  os.o(i.Scheduler)
-    i.SetGrade                               0x000010e4   Section        0  texas.o(i.SetGrade)
-    SetGrade                                 0x000010e5   Thumb Code   196  texas.o(i.SetGrade)
-    i.SetInitialStack                        0x000011b0   Section        0  os.o(i.SetInitialStack)
-    i.Step1Test                              0x00001300   Section        0  texas.o(i.Step1Test)
-    i.Step2Test                              0x0000169c   Section        0  texas.o(i.Step2Test)
-    i.Step3Test                              0x00001a38   Section        0  texas.o(i.Step3Test)
-    i.SystemInit                             0x00001d68   Section        0  system_msp432p401r.o(i.SystemInit)
-    i.T32_INT1_IRQHandler                    0x00001dc8   Section        0  bsp.o(i.T32_INT1_IRQHandler)
-    i.TA1_0_IRQHandler                       0x00001de0   Section        0  bsp.o(i.TA1_0_IRQHandler)
-    i.TA2_0_IRQHandler                       0x00001e00   Section        0  bsp.o(i.TA2_0_IRQHandler)
-    i.TA3_0_IRQHandler                       0x00001e20   Section        0  texas.o(i.TA3_0_IRQHandler)
-    i.TExaS_Init                             0x00001e40   Section        0  texas.o(i.TExaS_Init)
-    i.TExaS_Stop                             0x00001fec   Section        0  texas.o(i.TExaS_Stop)
-    i.TExaS_Task0                            0x00001ff4   Section        0  texas.o(i.TExaS_Task0)
-    i.TExaS_Task1                            0x00002034   Section        0  texas.o(i.TExaS_Task1)
-    i.TExaS_Task2                            0x00002074   Section        0  texas.o(i.TExaS_Task2)
-    i.TExaS_Task3                            0x000020b4   Section        0  texas.o(i.TExaS_Task3)
-    i.TExaS_Task4                            0x000020f4   Section        0  texas.o(i.TExaS_Task4)
-    i.TExaS_Task5                            0x00002134   Section        0  texas.o(i.TExaS_Task5)
-    i.TaskA                                  0x00002174   Section        0  lab4.o(i.TaskA)
-    i.TaskB                                  0x000021b0   Section        0  lab4.o(i.TaskB)
-    i.TaskC                                  0x000021e8   Section        0  lab4.o(i.TaskC)
-    i.TaskD                                  0x00002224   Section        0  lab4.o(i.TaskD)
-    i.TaskE                                  0x0000225c   Section        0  lab4.o(i.TaskE)
-    i.TaskF                                  0x00002298   Section        0  lab4.o(i.TaskF)
-    i.TaskG                                  0x000022d0   Section        0  lab4.o(i.TaskG)
-    i.TaskH                                  0x000022e8   Section        0  lab4.o(i.TaskH)
-    i.UART_Init                              0x00002300   Section        0  texas.o(i.UART_Init)
-    i.UART_OutChar                           0x0000236c   Section        0  texas.o(i.UART_OutChar)
-    i.UART_OutString                         0x00002384   Section        0  texas.o(i.UART_OutString)
-    i.UART_OutUDec                           0x0000239c   Section        0  texas.o(i.UART_OutUDec)
-    i.UART_OutUDec7                          0x000023c8   Section        0  texas.o(i.UART_OutUDec7)
-    i.UART_OutUFix1                          0x0000240c   Section        0  texas.o(i.UART_OutUFix1)
-    i.fillmessage7b                          0x0000243c   Section        0  texas.o(i.fillmessage7b)
-    fillmessage7b                            0x0000243d   Thumb Code   174  texas.o(i.fillmessage7b)
-    i.fillmessageb                           0x00002500   Section        0  texas.o(i.fillmessageb)
-    fillmessageb                             0x00002501   Thumb Code    64  texas.o(i.fillmessageb)
-    i.main                                   0x00002548   Section        0  lab4.o(i.main)
-    i.runperiodicevents                      0x000025f8   Section        0  os.o(i.runperiodicevents)
-    runperiodicevents                        0x000025f9   Thumb Code    50  os.o(i.runperiodicevents)
-    .constdata                               0x00002630   Section       72  texas.o(.constdata)
+    i.OS_Init                                0x00000c50   Section        0  os.o(i.OS_Init)
+    i.OS_InitSemaphore                       0x00000c6c   Section        0  os.o(i.OS_InitSemaphore)
+    i.OS_Launch                              0x00000c70   Section        0  os.o(i.OS_Launch)
+    i.OS_Signal                              0x00000ca4   Section        0  os.o(i.OS_Signal)
+    i.OS_Sleep                               0x00000cd8   Section        0  os.o(i.OS_Sleep)
+    i.OS_Suspend                             0x00000cec   Section        0  os.o(i.OS_Suspend)
+    i.OS_Wait                                0x00000d04   Section        0  os.o(i.OS_Wait)
+    i.PORT5_IRQHandler                       0x00000d30   Section        0  os.o(i.PORT5_IRQHandler)
+    i.PeriodicTask2_Init                     0x00000d34   Section        0  texas.o(i.PeriodicTask2_Init)
+    i.PeriodicTask2_Stop                     0x00000dd0   Section        0  texas.o(i.PeriodicTask2_Stop)
+    i.Profile_Init                           0x00000dec   Section        0  profile.o(i.Profile_Init)
+    i.RealTimeResults                        0x00000f44   Section        0  texas.o(i.RealTimeResults)
+    i.RealTimeResultsNoJitter                0x00000ffc   Section        0  texas.o(i.RealTimeResultsNoJitter)
+    i.Scheduler                              0x000010b0   Section        0  os.o(i.Scheduler)
+    i.SetGrade                               0x000010e0   Section        0  texas.o(i.SetGrade)
+    SetGrade                                 0x000010e1   Thumb Code   196  texas.o(i.SetGrade)
+    i.SetInitialStack                        0x000011ac   Section        0  os.o(i.SetInitialStack)
+    i.Step1Test                              0x000012fc   Section        0  texas.o(i.Step1Test)
+    i.Step2Test                              0x00001698   Section        0  texas.o(i.Step2Test)
+    i.Step3Test                              0x00001a34   Section        0  texas.o(i.Step3Test)
+    i.SystemInit                             0x00001d64   Section        0  system_msp432p401r.o(i.SystemInit)
+    i.T32_INT1_IRQHandler                    0x00001dc4   Section        0  bsp.o(i.T32_INT1_IRQHandler)
+    i.TA1_0_IRQHandler                       0x00001ddc   Section        0  bsp.o(i.TA1_0_IRQHandler)
+    i.TA2_0_IRQHandler                       0x00001dfc   Section        0  bsp.o(i.TA2_0_IRQHandler)
+    i.TA3_0_IRQHandler                       0x00001e1c   Section        0  texas.o(i.TA3_0_IRQHandler)
+    i.TExaS_Init                             0x00001e3c   Section        0  texas.o(i.TExaS_Init)
+    i.TExaS_Stop                             0x00001fe8   Section        0  texas.o(i.TExaS_Stop)
+    i.TExaS_Task0                            0x00001ff0   Section        0  texas.o(i.TExaS_Task0)
+    i.TExaS_Task1                            0x00002030   Section        0  texas.o(i.TExaS_Task1)
+    i.TExaS_Task2                            0x00002070   Section        0  texas.o(i.TExaS_Task2)
+    i.TExaS_Task3                            0x000020b0   Section        0  texas.o(i.TExaS_Task3)
+    i.TExaS_Task4                            0x000020f0   Section        0  texas.o(i.TExaS_Task4)
+    i.TExaS_Task5                            0x00002130   Section        0  texas.o(i.TExaS_Task5)
+    i.TaskA                                  0x00002170   Section        0  lab4.o(i.TaskA)
+    i.TaskB                                  0x000021ac   Section        0  lab4.o(i.TaskB)
+    i.TaskC                                  0x000021e4   Section        0  lab4.o(i.TaskC)
+    i.TaskD                                  0x00002220   Section        0  lab4.o(i.TaskD)
+    i.TaskE                                  0x00002258   Section        0  lab4.o(i.TaskE)
+    i.TaskF                                  0x00002294   Section        0  lab4.o(i.TaskF)
+    i.TaskG                                  0x000022cc   Section        0  lab4.o(i.TaskG)
+    i.TaskH                                  0x000022e4   Section        0  lab4.o(i.TaskH)
+    i.UART_Init                              0x000022fc   Section        0  texas.o(i.UART_Init)
+    i.UART_OutChar                           0x00002368   Section        0  texas.o(i.UART_OutChar)
+    i.UART_OutString                         0x00002380   Section        0  texas.o(i.UART_OutString)
+    i.UART_OutUDec                           0x00002398   Section        0  texas.o(i.UART_OutUDec)
+    i.UART_OutUDec7                          0x000023c4   Section        0  texas.o(i.UART_OutUDec7)
+    i.UART_OutUFix1                          0x00002408   Section        0  texas.o(i.UART_OutUFix1)
+    i.fillmessage7b                          0x00002438   Section        0  texas.o(i.fillmessage7b)
+    fillmessage7b                            0x00002439   Thumb Code   174  texas.o(i.fillmessage7b)
+    i.fillmessageb                           0x000024fc   Section        0  texas.o(i.fillmessageb)
+    fillmessageb                             0x000024fd   Thumb Code    64  texas.o(i.fillmessageb)
+    i.main                                   0x00002544   Section        0  lab4.o(i.main)
+    i.runperiodicevents                      0x000025f4   Section        0  os.o(i.runperiodicevents)
+    runperiodicevents                        0x000025f5   Thumb Code    50  os.o(i.runperiodicevents)
+    .constdata                               0x0000262c   Section       72  texas.o(.constdata)
     .data                                    0x20000000   Section       92  bsp.o(.data)
     ClockFrequency                           0x20000000   Data           4  bsp.o(.data)
     SubsystemFrequency                       0x20000004   Data           4  bsp.o(.data)
@@ -1186,58 +1186,58 @@ Image Symbol Table
     Grader                                   0x000005c5   Thumb Code  1170  texas.o(i.Grader)
     LogicAnalyzer                            0x00000a71   Thumb Code    12  texas.o(i.LogicAnalyzer)
     NonrealTimeResults                       0x00000a85   Thumb Code    78  texas.o(i.NonrealTimeResults)
-    OS_AddThreads                            0x00000b25   Thumb Code   290  os.o(i.OS_AddThreads)
-    OS_Init                                  0x00000c55   Thumb Code    24  os.o(i.OS_Init)
-    OS_InitSemaphore                         0x00000c71   Thumb Code     4  os.o(i.OS_InitSemaphore)
-    OS_Launch                                0x00000c75   Thumb Code    48  os.o(i.OS_Launch)
-    OS_Signal                                0x00000ca9   Thumb Code    46  os.o(i.OS_Signal)
-    OS_Sleep                                 0x00000cdd   Thumb Code    16  os.o(i.OS_Sleep)
-    OS_Suspend                               0x00000cf1   Thumb Code    18  os.o(i.OS_Suspend)
-    OS_Wait                                  0x00000d09   Thumb Code    40  os.o(i.OS_Wait)
-    PORT5_IRQHandler                         0x00000d35   Thumb Code     2  os.o(i.PORT5_IRQHandler)
-    PeriodicTask2_Init                       0x00000d39   Thumb Code   140  texas.o(i.PeriodicTask2_Init)
-    PeriodicTask2_Stop                       0x00000dd5   Thumb Code    20  texas.o(i.PeriodicTask2_Stop)
-    Profile_Init                             0x00000df1   Thumb Code   338  profile.o(i.Profile_Init)
-    RealTimeResults                          0x00000f49   Thumb Code   108  texas.o(i.RealTimeResults)
-    RealTimeResultsNoJitter                  0x00001001   Thumb Code    96  texas.o(i.RealTimeResultsNoJitter)
-    Scheduler                                0x000010b5   Thumb Code    42  os.o(i.Scheduler)
-    SetInitialStack                          0x000011b1   Thumb Code   328  os.o(i.SetInitialStack)
-    Step1Test                                0x00001301   Thumb Code   850  texas.o(i.Step1Test)
-    Step2Test                                0x0000169d   Thumb Code   850  texas.o(i.Step2Test)
-    Step3Test                                0x00001a39   Thumb Code   738  texas.o(i.Step3Test)
-    SystemInit                               0x00001d69   Thumb Code    74  system_msp432p401r.o(i.SystemInit)
-    T32_INT1_IRQHandler                      0x00001dc9   Thumb Code    16  bsp.o(i.T32_INT1_IRQHandler)
-    TA1_0_IRQHandler                         0x00001de1   Thumb Code    22  bsp.o(i.TA1_0_IRQHandler)
-    TA2_0_IRQHandler                         0x00001e01   Thumb Code    22  bsp.o(i.TA2_0_IRQHandler)
-    TA3_0_IRQHandler                         0x00001e21   Thumb Code    22  texas.o(i.TA3_0_IRQHandler)
-    TExaS_Init                               0x00001e41   Thumb Code   166  texas.o(i.TExaS_Init)
-    TExaS_Stop                               0x00001fed   Thumb Code     8  texas.o(i.TExaS_Stop)
-    TExaS_Task0                              0x00001ff5   Thumb Code    50  texas.o(i.TExaS_Task0)
-    TExaS_Task1                              0x00002035   Thumb Code    50  texas.o(i.TExaS_Task1)
-    TExaS_Task2                              0x00002075   Thumb Code    50  texas.o(i.TExaS_Task2)
-    TExaS_Task3                              0x000020b5   Thumb Code    50  texas.o(i.TExaS_Task3)
-    TExaS_Task4                              0x000020f5   Thumb Code    50  texas.o(i.TExaS_Task4)
-    TExaS_Task5                              0x00002135   Thumb Code    50  texas.o(i.TExaS_Task5)
-    TaskA                                    0x00002175   Thumb Code    48  lab4.o(i.TaskA)
-    TaskB                                    0x000021b1   Thumb Code    42  lab4.o(i.TaskB)
-    TaskC                                    0x000021e9   Thumb Code    48  lab4.o(i.TaskC)
-    TaskD                                    0x00002225   Thumb Code    42  lab4.o(i.TaskD)
-    TaskE                                    0x0000225d   Thumb Code    48  lab4.o(i.TaskE)
-    TaskF                                    0x00002299   Thumb Code    42  lab4.o(i.TaskF)
-    TaskG                                    0x000022d1   Thumb Code    20  lab4.o(i.TaskG)
-    TaskH                                    0x000022e9   Thumb Code    20  lab4.o(i.TaskH)
-    UART_Init                                0x00002301   Thumb Code   100  texas.o(i.UART_Init)
-    UART_OutChar                             0x0000236d   Thumb Code    20  texas.o(i.UART_OutChar)
-    UART_OutString                           0x00002385   Thumb Code    24  texas.o(i.UART_OutString)
-    UART_OutUDec                             0x0000239d   Thumb Code    42  texas.o(i.UART_OutUDec)
-    UART_OutUDec7                            0x000023c9   Thumb Code    48  texas.o(i.UART_OutUDec7)
-    UART_OutUFix1                            0x0000240d   Thumb Code    46  texas.o(i.UART_OutUFix1)
-    main                                     0x00002549   Thumb Code   130  lab4.o(i.main)
-    Key                                      0x00002630   Data           8  texas.o(.constdata)
-    Scramble                                 0x00002638   Data          32  texas.o(.constdata)
-    DeScramble                               0x00002658   Data          32  texas.o(.constdata)
-    Region$$Table$$Base                      0x00002678   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002698   Number         0  anon$$obj.o(Region$$Table)
+    OS_AddThreads                            0x00000b25   Thumb Code   286  os.o(i.OS_AddThreads)
+    OS_Init                                  0x00000c51   Thumb Code    24  os.o(i.OS_Init)
+    OS_InitSemaphore                         0x00000c6d   Thumb Code     4  os.o(i.OS_InitSemaphore)
+    OS_Launch                                0x00000c71   Thumb Code    48  os.o(i.OS_Launch)
+    OS_Signal                                0x00000ca5   Thumb Code    46  os.o(i.OS_Signal)
+    OS_Sleep                                 0x00000cd9   Thumb Code    16  os.o(i.OS_Sleep)
+    OS_Suspend                               0x00000ced   Thumb Code    18  os.o(i.OS_Suspend)
+    OS_Wait                                  0x00000d05   Thumb Code    40  os.o(i.OS_Wait)
+    PORT5_IRQHandler                         0x00000d31   Thumb Code     2  os.o(i.PORT5_IRQHandler)
+    PeriodicTask2_Init                       0x00000d35   Thumb Code   140  texas.o(i.PeriodicTask2_Init)
+    PeriodicTask2_Stop                       0x00000dd1   Thumb Code    20  texas.o(i.PeriodicTask2_Stop)
+    Profile_Init                             0x00000ded   Thumb Code   338  profile.o(i.Profile_Init)
+    RealTimeResults                          0x00000f45   Thumb Code   108  texas.o(i.RealTimeResults)
+    RealTimeResultsNoJitter                  0x00000ffd   Thumb Code    96  texas.o(i.RealTimeResultsNoJitter)
+    Scheduler                                0x000010b1   Thumb Code    42  os.o(i.Scheduler)
+    SetInitialStack                          0x000011ad   Thumb Code   328  os.o(i.SetInitialStack)
+    Step1Test                                0x000012fd   Thumb Code   850  texas.o(i.Step1Test)
+    Step2Test                                0x00001699   Thumb Code   850  texas.o(i.Step2Test)
+    Step3Test                                0x00001a35   Thumb Code   738  texas.o(i.Step3Test)
+    SystemInit                               0x00001d65   Thumb Code    74  system_msp432p401r.o(i.SystemInit)
+    T32_INT1_IRQHandler                      0x00001dc5   Thumb Code    16  bsp.o(i.T32_INT1_IRQHandler)
+    TA1_0_IRQHandler                         0x00001ddd   Thumb Code    22  bsp.o(i.TA1_0_IRQHandler)
+    TA2_0_IRQHandler                         0x00001dfd   Thumb Code    22  bsp.o(i.TA2_0_IRQHandler)
+    TA3_0_IRQHandler                         0x00001e1d   Thumb Code    22  texas.o(i.TA3_0_IRQHandler)
+    TExaS_Init                               0x00001e3d   Thumb Code   166  texas.o(i.TExaS_Init)
+    TExaS_Stop                               0x00001fe9   Thumb Code     8  texas.o(i.TExaS_Stop)
+    TExaS_Task0                              0x00001ff1   Thumb Code    50  texas.o(i.TExaS_Task0)
+    TExaS_Task1                              0x00002031   Thumb Code    50  texas.o(i.TExaS_Task1)
+    TExaS_Task2                              0x00002071   Thumb Code    50  texas.o(i.TExaS_Task2)
+    TExaS_Task3                              0x000020b1   Thumb Code    50  texas.o(i.TExaS_Task3)
+    TExaS_Task4                              0x000020f1   Thumb Code    50  texas.o(i.TExaS_Task4)
+    TExaS_Task5                              0x00002131   Thumb Code    50  texas.o(i.TExaS_Task5)
+    TaskA                                    0x00002171   Thumb Code    48  lab4.o(i.TaskA)
+    TaskB                                    0x000021ad   Thumb Code    42  lab4.o(i.TaskB)
+    TaskC                                    0x000021e5   Thumb Code    48  lab4.o(i.TaskC)
+    TaskD                                    0x00002221   Thumb Code    42  lab4.o(i.TaskD)
+    TaskE                                    0x00002259   Thumb Code    48  lab4.o(i.TaskE)
+    TaskF                                    0x00002295   Thumb Code    42  lab4.o(i.TaskF)
+    TaskG                                    0x000022cd   Thumb Code    20  lab4.o(i.TaskG)
+    TaskH                                    0x000022e5   Thumb Code    20  lab4.o(i.TaskH)
+    UART_Init                                0x000022fd   Thumb Code   100  texas.o(i.UART_Init)
+    UART_OutChar                             0x00002369   Thumb Code    20  texas.o(i.UART_OutChar)
+    UART_OutString                           0x00002381   Thumb Code    24  texas.o(i.UART_OutString)
+    UART_OutUDec                             0x00002399   Thumb Code    42  texas.o(i.UART_OutUDec)
+    UART_OutUDec7                            0x000023c5   Thumb Code    48  texas.o(i.UART_OutUDec7)
+    UART_OutUFix1                            0x00002409   Thumb Code    46  texas.o(i.UART_OutUFix1)
+    main                                     0x00002545   Thumb Code   130  lab4.o(i.main)
+    Key                                      0x0000262c   Data           8  texas.o(.constdata)
+    Scramble                                 0x00002634   Data          32  texas.o(.constdata)
+    DeScramble                               0x00002654   Data          32  texas.o(.constdata)
+    Region$$Table$$Base                      0x00002674   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002694   Number         0  anon$$obj.o(Region$$Table)
     StX                                      0x2000000c   Data           4  bsp.o(.data)
     StY                                      0x20000010   Data           4  bsp.o(.data)
     StTextColor                              0x20000014   Data           2  bsp.o(.data)
@@ -1354,9 +1354,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000269
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00002834, Max: 0xffffffff, ABSOLUTE, COMPRESSED[0x000026b0])
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00002830, Max: 0xffffffff, ABSOLUTE, COMPRESSED[0x000026ac])
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00002698, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00002694, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1429,65 +1429,65 @@ Memory Map of the image
     0x000005c4   0x000005c4   0x000004ac   Code   RO          943    i.Grader            texas.o
     0x00000a70   0x00000a70   0x00000014   Code   RO          944    i.LogicAnalyzer     texas.o
     0x00000a84   0x00000a84   0x000000a0   Code   RO          945    i.NonrealTimeResults  texas.o
-    0x00000b24   0x00000b24   0x00000130   Code   RO          546    i.OS_AddThreads     os.o
-    0x00000c54   0x00000c54   0x0000001c   Code   RO          552    i.OS_Init           os.o
-    0x00000c70   0x00000c70   0x00000004   Code   RO          553    i.OS_InitSemaphore  os.o
-    0x00000c74   0x00000c74   0x00000034   Code   RO          554    i.OS_Launch         os.o
-    0x00000ca8   0x00000ca8   0x00000034   Code   RO          557    i.OS_Signal         os.o
-    0x00000cdc   0x00000cdc   0x00000014   Code   RO          558    i.OS_Sleep          os.o
-    0x00000cf0   0x00000cf0   0x00000018   Code   RO          559    i.OS_Suspend        os.o
-    0x00000d08   0x00000d08   0x0000002c   Code   RO          560    i.OS_Wait           os.o
-    0x00000d34   0x00000d34   0x00000002   Code   RO          561    i.PORT5_IRQHandler  os.o
-    0x00000d36   0x00000d36   0x00000002   PAD
-    0x00000d38   0x00000d38   0x0000009c   Code   RO          946    i.PeriodicTask2_Init  texas.o
-    0x00000dd4   0x00000dd4   0x0000001c   Code   RO          947    i.PeriodicTask2_Stop  texas.o
-    0x00000df0   0x00000df0   0x00000158   Code   RO          707    i.Profile_Init      profile.o
-    0x00000f48   0x00000f48   0x000000b8   Code   RO          948    i.RealTimeResults   texas.o
-    0x00001000   0x00001000   0x000000b4   Code   RO          949    i.RealTimeResultsNoJitter  texas.o
-    0x000010b4   0x000010b4   0x00000030   Code   RO          563    i.Scheduler         os.o
-    0x000010e4   0x000010e4   0x000000cc   Code   RO          950    i.SetGrade          texas.o
-    0x000011b0   0x000011b0   0x00000150   Code   RO          564    i.SetInitialStack   os.o
-    0x00001300   0x00001300   0x0000039c   Code   RO          951    i.Step1Test         texas.o
-    0x0000169c   0x0000169c   0x0000039c   Code   RO          952    i.Step2Test         texas.o
-    0x00001a38   0x00001a38   0x00000330   Code   RO          953    i.Step3Test         texas.o
-    0x00001d68   0x00001d68   0x00000060   Code   RO         1253    i.SystemInit        system_msp432p401r.o
-    0x00001dc8   0x00001dc8   0x00000018   Code   RO           66    i.T32_INT1_IRQHandler  bsp.o
-    0x00001de0   0x00001de0   0x00000020   Code   RO           67    i.TA1_0_IRQHandler  bsp.o
-    0x00001e00   0x00001e00   0x00000020   Code   RO           68    i.TA2_0_IRQHandler  bsp.o
-    0x00001e20   0x00001e20   0x00000020   Code   RO          954    i.TA3_0_IRQHandler  texas.o
-    0x00001e40   0x00001e40   0x000001ac   Code   RO          955    i.TExaS_Init        texas.o
-    0x00001fec   0x00001fec   0x00000008   Code   RO          956    i.TExaS_Stop        texas.o
-    0x00001ff4   0x00001ff4   0x00000040   Code   RO          957    i.TExaS_Task0       texas.o
-    0x00002034   0x00002034   0x00000040   Code   RO          958    i.TExaS_Task1       texas.o
-    0x00002074   0x00002074   0x00000040   Code   RO          959    i.TExaS_Task2       texas.o
-    0x000020b4   0x000020b4   0x00000040   Code   RO          960    i.TExaS_Task3       texas.o
-    0x000020f4   0x000020f4   0x00000040   Code   RO          961    i.TExaS_Task4       texas.o
-    0x00002134   0x00002134   0x00000040   Code   RO          962    i.TExaS_Task5       texas.o
-    0x00002174   0x00002174   0x0000003c   Code   RO          741    i.TaskA             lab4.o
-    0x000021b0   0x000021b0   0x00000038   Code   RO          742    i.TaskB             lab4.o
-    0x000021e8   0x000021e8   0x0000003c   Code   RO          743    i.TaskC             lab4.o
-    0x00002224   0x00002224   0x00000038   Code   RO          744    i.TaskD             lab4.o
-    0x0000225c   0x0000225c   0x0000003c   Code   RO          745    i.TaskE             lab4.o
-    0x00002298   0x00002298   0x00000038   Code   RO          746    i.TaskF             lab4.o
-    0x000022d0   0x000022d0   0x00000018   Code   RO          747    i.TaskG             lab4.o
-    0x000022e8   0x000022e8   0x00000018   Code   RO          748    i.TaskH             lab4.o
-    0x00002300   0x00002300   0x0000006c   Code   RO          969    i.UART_Init         texas.o
-    0x0000236c   0x0000236c   0x00000018   Code   RO          970    i.UART_OutChar      texas.o
-    0x00002384   0x00002384   0x00000018   Code   RO          972    i.UART_OutString    texas.o
-    0x0000239c   0x0000239c   0x0000002a   Code   RO          973    i.UART_OutUDec      texas.o
-    0x000023c6   0x000023c6   0x00000002   PAD
-    0x000023c8   0x000023c8   0x00000044   Code   RO          977    i.UART_OutUDec7     texas.o
-    0x0000240c   0x0000240c   0x0000002e   Code   RO          978    i.UART_OutUFix1     texas.o
-    0x0000243a   0x0000243a   0x00000002   PAD
-    0x0000243c   0x0000243c   0x000000c4   Code   RO          983    i.fillmessage7b     texas.o
-    0x00002500   0x00002500   0x00000048   Code   RO          984    i.fillmessageb      texas.o
-    0x00002548   0x00002548   0x000000b0   Code   RO          760    i.main              lab4.o
-    0x000025f8   0x000025f8   0x00000038   Code   RO          565    i.runperiodicevents  os.o
-    0x00002630   0x00002630   0x00000048   Data   RO          986    .constdata          texas.o
-    0x00002678   0x00002678   0x00000020   Data   RO         1484    Region$$Table       anon$$obj.o
+    0x00000b24   0x00000b24   0x0000012c   Code   RO          546    i.OS_AddThreads     os.o
+    0x00000c50   0x00000c50   0x0000001c   Code   RO          552    i.OS_Init           os.o
+    0x00000c6c   0x00000c6c   0x00000004   Code   RO          553    i.OS_InitSemaphore  os.o
+    0x00000c70   0x00000c70   0x00000034   Code   RO          554    i.OS_Launch         os.o
+    0x00000ca4   0x00000ca4   0x00000034   Code   RO          557    i.OS_Signal         os.o
+    0x00000cd8   0x00000cd8   0x00000014   Code   RO          558    i.OS_Sleep          os.o
+    0x00000cec   0x00000cec   0x00000018   Code   RO          559    i.OS_Suspend        os.o
+    0x00000d04   0x00000d04   0x0000002c   Code   RO          560    i.OS_Wait           os.o
+    0x00000d30   0x00000d30   0x00000002   Code   RO          561    i.PORT5_IRQHandler  os.o
+    0x00000d32   0x00000d32   0x00000002   PAD
+    0x00000d34   0x00000d34   0x0000009c   Code   RO          946    i.PeriodicTask2_Init  texas.o
+    0x00000dd0   0x00000dd0   0x0000001c   Code   RO          947    i.PeriodicTask2_Stop  texas.o
+    0x00000dec   0x00000dec   0x00000158   Code   RO          707    i.Profile_Init      profile.o
+    0x00000f44   0x00000f44   0x000000b8   Code   RO          948    i.RealTimeResults   texas.o
+    0x00000ffc   0x00000ffc   0x000000b4   Code   RO          949    i.RealTimeResultsNoJitter  texas.o
+    0x000010b0   0x000010b0   0x00000030   Code   RO          563    i.Scheduler         os.o
+    0x000010e0   0x000010e0   0x000000cc   Code   RO          950    i.SetGrade          texas.o
+    0x000011ac   0x000011ac   0x00000150   Code   RO          564    i.SetInitialStack   os.o
+    0x000012fc   0x000012fc   0x0000039c   Code   RO          951    i.Step1Test         texas.o
+    0x00001698   0x00001698   0x0000039c   Code   RO          952    i.Step2Test         texas.o
+    0x00001a34   0x00001a34   0x00000330   Code   RO          953    i.Step3Test         texas.o
+    0x00001d64   0x00001d64   0x00000060   Code   RO         1253    i.SystemInit        system_msp432p401r.o
+    0x00001dc4   0x00001dc4   0x00000018   Code   RO           66    i.T32_INT1_IRQHandler  bsp.o
+    0x00001ddc   0x00001ddc   0x00000020   Code   RO           67    i.TA1_0_IRQHandler  bsp.o
+    0x00001dfc   0x00001dfc   0x00000020   Code   RO           68    i.TA2_0_IRQHandler  bsp.o
+    0x00001e1c   0x00001e1c   0x00000020   Code   RO          954    i.TA3_0_IRQHandler  texas.o
+    0x00001e3c   0x00001e3c   0x000001ac   Code   RO          955    i.TExaS_Init        texas.o
+    0x00001fe8   0x00001fe8   0x00000008   Code   RO          956    i.TExaS_Stop        texas.o
+    0x00001ff0   0x00001ff0   0x00000040   Code   RO          957    i.TExaS_Task0       texas.o
+    0x00002030   0x00002030   0x00000040   Code   RO          958    i.TExaS_Task1       texas.o
+    0x00002070   0x00002070   0x00000040   Code   RO          959    i.TExaS_Task2       texas.o
+    0x000020b0   0x000020b0   0x00000040   Code   RO          960    i.TExaS_Task3       texas.o
+    0x000020f0   0x000020f0   0x00000040   Code   RO          961    i.TExaS_Task4       texas.o
+    0x00002130   0x00002130   0x00000040   Code   RO          962    i.TExaS_Task5       texas.o
+    0x00002170   0x00002170   0x0000003c   Code   RO          741    i.TaskA             lab4.o
+    0x000021ac   0x000021ac   0x00000038   Code   RO          742    i.TaskB             lab4.o
+    0x000021e4   0x000021e4   0x0000003c   Code   RO          743    i.TaskC             lab4.o
+    0x00002220   0x00002220   0x00000038   Code   RO          744    i.TaskD             lab4.o
+    0x00002258   0x00002258   0x0000003c   Code   RO          745    i.TaskE             lab4.o
+    0x00002294   0x00002294   0x00000038   Code   RO          746    i.TaskF             lab4.o
+    0x000022cc   0x000022cc   0x00000018   Code   RO          747    i.TaskG             lab4.o
+    0x000022e4   0x000022e4   0x00000018   Code   RO          748    i.TaskH             lab4.o
+    0x000022fc   0x000022fc   0x0000006c   Code   RO          969    i.UART_Init         texas.o
+    0x00002368   0x00002368   0x00000018   Code   RO          970    i.UART_OutChar      texas.o
+    0x00002380   0x00002380   0x00000018   Code   RO          972    i.UART_OutString    texas.o
+    0x00002398   0x00002398   0x0000002a   Code   RO          973    i.UART_OutUDec      texas.o
+    0x000023c2   0x000023c2   0x00000002   PAD
+    0x000023c4   0x000023c4   0x00000044   Code   RO          977    i.UART_OutUDec7     texas.o
+    0x00002408   0x00002408   0x0000002e   Code   RO          978    i.UART_OutUFix1     texas.o
+    0x00002436   0x00002436   0x00000002   PAD
+    0x00002438   0x00002438   0x000000c4   Code   RO          983    i.fillmessage7b     texas.o
+    0x000024fc   0x000024fc   0x00000048   Code   RO          984    i.fillmessageb      texas.o
+    0x00002544   0x00002544   0x000000b0   Code   RO          760    i.main              lab4.o
+    0x000025f4   0x000025f4   0x00000038   Code   RO          565    i.runperiodicevents  os.o
+    0x0000262c   0x0000262c   0x00000048   Data   RO          986    .constdata          texas.o
+    0x00002674   0x00002674   0x00000020   Data   RO         1484    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00002698, Size: 0x0000019c, Max: 0xffffffff, ABSOLUTE, COMPRESSED[0x00000018])
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00002694, Size: 0x0000019c, Max: 0xffffffff, ABSOLUTE, COMPRESSED[0x00000018])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1497,7 +1497,7 @@ Memory Map of the image
     0x20000158   COMPRESSED   0x00000044   Data   RW          987    .data               texas.o
 
 
-    Execution Region ER_ZI (Exec base: 0x2000019c, Load base: 0x000026b0, Size: 0x00001674, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x2000019c, Load base: 0x000026ac, Size: 0x00001674, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1518,7 +1518,7 @@ Image component sizes
        660        122          0         92          0      11831   bsp.o
         32          0          0          0          0        544   cortexm.o
        572        132          0        208          0       6837   lab4.o
-       970         62          0         44       3400       7781   os.o
+       966         62          0         44       3400       7781   os.o
         72          4          0          0          0        236   osasm.o
        344          6          0          0          0        495   profile.o
         60         22        324          0        512        880   startup_msp432p401r_uvision.o
@@ -1526,7 +1526,7 @@ Image component sizes
       6328       1078         72         68       1740      24234   texas.o
 
     ----------------------------------------------------------------------
-      9140       1448        428        412       5652      53319   Object Totals
+      9136       1448        428        412       5652      53319   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          0          0          0   (incl. Padding)
 
@@ -1575,15 +1575,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      9452       1464        428        412       5748      50831   Grand Totals
-      9452       1464        428         24       5748      50831   ELF Image Totals (compressed)
-      9452       1464        428         24          0          0   ROM Totals
+      9448       1464        428        412       5748      50831   Grand Totals
+      9448       1464        428         24       5748      50831   ELF Image Totals (compressed)
+      9448       1464        428         24          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 9880 (   9.65kB)
+    Total RO  Size (Code + RO Data)                 9876 (   9.64kB)
     Total RW  Size (RW Data + ZI Data)              6160 (   6.02kB)
-    Total ROM Size (Code + RO Data + RW Data)       9904 (   9.67kB)
+    Total ROM Size (Code + RO Data + RW Data)       9900 (   9.67kB)
 
 ==============================================================================
 

@@ -604,8 +604,8 @@ int main(void){
   OS_InitSemaphore(&sEF, 0);
   OS_AddThreads(&TaskA,0, &TaskB,1, &TaskC,2, &TaskD,3,
    	&TaskE,4, &TaskF,5, &TaskG,6, &TaskH,7);
-  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 4 grader
-  //TExaS_Init(GRADESTEP1, 1000);    // initialize the Lab 4 grader
+  //TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 4 grader
+  TExaS_Init(GRADESTEP1, 1000);    // initialize the Lab 4 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
 }
