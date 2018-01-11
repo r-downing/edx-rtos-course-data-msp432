@@ -19,7 +19,7 @@ I (../inc/CortexM.h)(0x57D2F192)
 I (os.h)(0x57BE6C14)
 I (../inc/Profile.h)(0x575D75F6)
 I (Texas.h)(0x56F45F86)
-F (.\os.c)(0x5A55A2FA)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ..\inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -D__MSP432P401R__-o .\objects\os.o --omf_browse .\objects\os.crf --depend .\objects\os.d)
+F (.\os.c)(0x5A56CBB0)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ..\inc-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.2.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\TexasInstruments\MSP432P4xx_DFP\3.2.2\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -D__MSP432P401R__-o .\objects\os.o --omf_browse .\objects\os.crf --depend .\objects\os.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C3A14)
 I (os.h)(0x57BE6C14)
 I (..\inc\CortexM.h)(0x57D2F192)
