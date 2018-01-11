@@ -485,8 +485,8 @@ int main(void){
 	OS_PeriodTrigger0_Init(&TakeSoundData,1);  // every 1 ms
 	OS_PeriodTrigger1_Init(&TakeAccelerationData,100); //every 100ms
   // when grading change 1000 to 4-digit number from edX
-  //TExaS_Init(GRADER, 5163  );          // initialize the Lab 4 grader
-  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 4 logic analyzer
+  TExaS_Init(GRADER, 5163  );          // initialize the Lab 4 grader
+//  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 4 logic analyzer
   OS_Launch(BSP_Clock_GetFreq()/THREADFREQ); // doesn't return, interrupts enabled in here
   return 0;             // this never executes
 }
@@ -604,8 +604,8 @@ int main_step1(void){
   OS_InitSemaphore(&sEF, 0);
   OS_AddThreads(&TaskA,0, &TaskB,1, &TaskC,2, &TaskD,3,
    	&TaskE,4, &TaskF,5, &TaskG,6, &TaskH,7);
-  TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 4 grader
-  //TExaS_Init(GRADESTEP1, 1000);    // initialize the Lab 4 grader
+  //TExaS_Init(LOGICANALYZER, 1000); // initialize the Lab 4 grader
+  TExaS_Init(GRADESTEP1, 1000);    // initialize the Lab 4 grader
   OS_Launch(BSP_Clock_GetFreq()/1000);
   return 0;             // this never executes
 }
